@@ -6,53 +6,63 @@ html {
 body{
     font-family: Helvetica,arial,freesans,clean,sans-serif;
     font-size: 15px;
+    background-color: #fafafa;
 }
 header {
     background-color: #333;
-    padding-top: 15px;
-    padding-bottom: 10px;
 }
-.header_block {
-    height: 25px;
+.top_menu a{
+    color:white !important;
 }
-header a, span, p {
+.top_menu{
+    background-color: #333 !important;
+}
+.footer p.pull-left {
     color: white;
 }
-.right_header_block {
-    float: right;
+#yii-debug-toolbar{
+    display: none !important;
 }
-.left_header_block {
-    float: left;
+.top_info p {
+    font-size: 20px;
+    margin-left: 50px;
 }
-.left_header_block p {
-    float: right;
-    margin-left: 5px;
+.top_info {
+    text-shadow: 2px 2px 0 #ccc;
+    border-bottom: 1px solid #e5e5e5;
 }
-.right_header_block nav a {
-    margin-right: 20px;
-    cursor: pointer;
-    padding-right: 9px;
-    padding-left: 9px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-.right_header_block nav a:hover {
-    background-color: #272727;
-    color: white;
-    text-decoration: none;
-}
-.page_news {
-    width: 100%;
-    height: auto;
-}
-footer {
-    border: 1px solid #222;
-    background-color: #333;
-    color: #fff;
-    font-size: 13px;
-    text-shadow: 2px 2px 0 #222;
+.news_module {
+    position: relative;
+    display: block;
     width: 100%;
 }
-.dev_code p {
-    text-align: center;
+.news_project {
+    padding: 10px;
+    width: 100%;
+    font-size: 18px;
+    word-break: break-word;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.news_name {
+    display: inline;
+    color: #008cba;
+    cursor: default;
+}
+.news_decription {
+    font-size: 15px;
+    border-top-width: 1px;
+    margin: 8px 0;
+    padding: 8px 0 16px;
+    border-top: 1px solid #ddd;
+    height: 200px;
+    overflow: hidden;
+    white-space: normal;
+}
+.data {
+    text-align: right;
+    color: #aaa;
+    font: normal normal normal 14px/1 FontAwesome;
 }
