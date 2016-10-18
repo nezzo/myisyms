@@ -12,22 +12,20 @@ use Yii;
 use yii\base\Model;
 use yii\db\ActiveRecord;
 /**
- * Description of News_index
+ * Description of Pages_News
  *
  * @author nestor
  */
-/*Выводим на главную с базы последние добавленные записи*/
-class News_index extends Model{
+class Pages_News extends Model {
     
-    
-    function rows_news(){
+    function pages_get($id){
         $rows = (new \yii\db\Query())
-        ->select(['id','name','image', 'decription', 'data'])
-        ->from('news_blogpost')
-        ->limit(9)
+        ->select(['name','image', 'decription', 'data'])
+        ->from('post')
+        ->where($id)
         ->all();
         
-        return $rows;
-        }
-    
+        //return $rows;
+        var_dump($rows);
+    }
 }

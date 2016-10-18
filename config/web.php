@@ -1,7 +1,6 @@
 <?php
 
 $params = require(__DIR__ . '/params.php');
-
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
@@ -10,6 +9,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'Hello World',
+            'baseUrl' => '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -38,14 +38,32 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
+         
+        /*Настройка ЧПУ*/
         'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
+        'class' => 'yii\web\UrlManager',
+        // Убираем index.php
+        'showScriptName' => false,
+        // Убираем r= routes
+        'enablePrettyUrl' => true,
+            'baseUrl' => '',
+        'rules' => array(
+            '<controller:\w+>/<id:\d+>' => '<controller>/view',
+            '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+            '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+        ),
+         'rules' => [
+            'index'=>'site/index',
+            'contact'=>'site/contact',
+            'sociat'=>'site/sociat',
+            'pages'=>'site/pages',
+        ],   
+            /*Добавляем расширение к ссылке*/
+            'suffix'=>'.html'
+                        
+
         ],
-        */
+        
     ],
     'params' => $params,
 ];

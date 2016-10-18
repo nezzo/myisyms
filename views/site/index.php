@@ -5,9 +5,6 @@
 $this->title = 'Официальный сайт ISYMS';
 ?>
 <div class="site-index">
-
-    
-
     <div class="body-content">
         <div class="row">
             <div class="top_info">
@@ -22,7 +19,10 @@ $this->title = 'Официальный сайт ISYMS';
                      <div class="col-md-4"> 
                          <div class="news_project">
                             <div class="news_name">
-                            <?=$news['name']?>
+                                <a href="/pages.html?p=<?=$news['id']?>"><?=$news['name']?></a>
+                            </div>
+                             <div class="news_image">
+                            <?=$news['image']?>
                             </div>
                             <div class="news_decription">
                             <?=$news['decription']?>

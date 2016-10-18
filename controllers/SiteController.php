@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\News_index;
+use app\models\Pages_News;
 
 class SiteController extends Controller
 {
@@ -107,16 +108,13 @@ class SiteController extends Controller
      *
      * @return string
      */
+    /*Выводим контактные данные на страницу КОНТАКТЫ*/
     public function actionContact()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
+        $contact = new ContactForm();
+        
         return $this->render('contact', [
-            'model' => $model,
+            'contact' => $contact->rows_contact(),
         ]);
     }
 
@@ -128,6 +126,20 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    
+    
+    /*Создаем страницу и выводим там статьи (параметр передачи  и вызов нужной статьи)
+       по id записи в базе
+     *      */
+    public function actionPages()
+    {
+        $pages = new Pages_News();
+        
+        $id = intval($_GET['p']);
+        return $this->render('pages',[
+            'page'=>$pages->pages_get($id)
+        ]);
     }
     
 }

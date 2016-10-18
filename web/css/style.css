@@ -45,6 +45,7 @@ header {
     margin-top: 10px;
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    background-color: #fff;
 }
 .news_name {
     display: inline;
@@ -65,4 +66,20 @@ header {
     text-align: right;
     color: #aaa;
     font: normal normal normal 14px/1 FontAwesome;
+}
+.contact_title {
+    text-shadow: 2px 2px 0 #ccc;
+}
+.contact_title p {
+    font-size: 30px;
+    border-bottom: 1px solid #ccc;
+}
+.block_contact {
+    margin-top: 11px;
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,0.3);
+    background-color: #fff;
+    margin-top: 35px;
+    font-size: 18px;
 }
