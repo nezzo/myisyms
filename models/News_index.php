@@ -22,7 +22,7 @@ class News_index extends Model{
     
     function rows_news(){
         $rows = (new \yii\db\Query())
-        ->select(['id','name','image', 'decription', 'data'])
+        ->select(['id','name','image', 'description', 'data'])
         ->from('news_blogpost')
         ->limit(9)
         ->all();

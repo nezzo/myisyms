@@ -1,22 +1,14 @@
-<?php
-$id = intval($_GET['p']);
-
-if($id==0){
-   echo "Пожалуйста введите корректные данные!";
-   exit();
-}
-?>
-
 <div class="page_content">
+    <div class="tab-data">
+            <?=$data?>
+        </div>
     <div class="page_name">
-        <?=$page['name']?>
+        <h1><?=$name?></h1>
     </div>
     <div class="tab-content">
-        <div class="tab-image">
-            
+       <div class="tab-active">
+            <?=$description?>
         </div>
-        <div class="tab-active">
-            
-        </div>
+        
     </div>
 </div>

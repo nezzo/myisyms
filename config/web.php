@@ -56,10 +56,10 @@ $config = [
             'index'=>'site/index',
             'contact'=>'site/contact',
             'sociat'=>'site/sociat',
-            'pages'=>'site/pages',
+            'pages/<pages:\w+>'=>'site/pages',
         ],   
             /*Добавляем расширение к ссылке*/
-            'suffix'=>'.html'
+            //'suffix'=>'.html'
                         
 
         ],

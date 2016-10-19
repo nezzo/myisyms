@@ -129,16 +129,25 @@ class SiteController extends Controller
     }
     
     
-    /*Создаем страницу и выводим там статьи (параметр передачи  и вызов нужной статьи)
-       по id записи в базе
+    /*Создаем страницу и выводим новость, принимает id  записи базы по get запросу
      *      */
     public function actionPages()
     {
-        $pages = new Pages_News();
+        $news = new Pages_News();
+        $id = Yii::$app->request->get('pages');
+        $mas_news = $news->pages_get($id);
         
-        $id = intval($_GET['p']);
+        foreach ($mas_news as $news){
+            $name = $news['name'];
+            $image = $news['image'];
+            $description = $news['description'];
+            $data = $news['data'];
+        }
         return $this->render('pages',[
-            'page'=>$pages->pages_get($id)
+            'name'=> $name,
+            'image'=>$image,
+            'description'=>$description,
+            'data'=>$data
         ]);
     }
     

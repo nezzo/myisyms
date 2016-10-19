@@ -19,13 +19,13 @@ $this->title = 'Официальный сайт ISYMS';
                      <div class="col-md-4"> 
                          <div class="news_project">
                             <div class="news_name">
-                                <a href="/pages.html?p=<?=$news['id']?>"><?=$news['name']?></a>
+                                <a href="/pages/<?=$news['id']?>"><?=$news['name']?></a>
                             </div>
                              <div class="news_image">
                             <?=$news['image']?>
                             </div>
                             <div class="news_decription">
-                            <?=$news['decription']?>
+                            <?=$news['description']?>
                             </div>
                             <div class="data">
                             <?=$news['data']?>

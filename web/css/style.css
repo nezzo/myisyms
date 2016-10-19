@@ -83,3 +83,31 @@ header {
     margin-top: 35px;
     font-size: 18px;
 }
+.page_content {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+    padding: 20px;
+}
+.page_name h1 {
+    color: #008cba;
+}
+.page_name {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 30px;
+}
+.tab-image img {
+    width: 100%;
+    height: auto;
+}
+.tab-image {
+    height: auto;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.tab-data {
+    float: right;
+    color: #969896;
+}
