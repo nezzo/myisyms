@@ -68,7 +68,7 @@ class SiteController extends Controller
         return $this->render('index',[
             'news_index' => $news_index->rows_news(),
         ]);
-        
+       
     }
 
     /**
@@ -137,7 +137,8 @@ class SiteController extends Controller
         $id = Yii::$app->request->get('pages');
         $mas_news = $news->pages_get($id);
         
-        foreach ($mas_news as $news){
+        if (!empty($mas_news)){
+         foreach ($mas_news as $news){
             $name = $news['name'];
             $image = $news['image'];
             $description = $news['description'];
@@ -148,7 +149,12 @@ class SiteController extends Controller
             'image'=>$image,
             'description'=>$description,
             'data'=>$data
-        ]);
+        ]);   
+            
+        }else{
+            echo "Page Error!";
+        }
+        
     }
     
 }

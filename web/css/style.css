@@ -11,8 +11,11 @@ body{
 header {
     background-color: #333;
 }
-.top_menu a{
+.navbar-inverse .navbar-nav > li > a{
     color:white !important;
+}
+.navbar-inverse .navbar-brand{
+   color:white !important;
 }
 .top_menu{
     background-color: #333 !important;
@@ -110,4 +113,17 @@ header {
 .tab-data {
     float: right;
     color: #969896;
+}
+li.seach {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.search_form {
+    position: relative;
+    width: 100%;
+    z-index: 9999;
+    color: #fff;
+    margin-top: 4%;
 }

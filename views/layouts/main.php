@@ -36,16 +36,24 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Главная', 'url' => ['/site/index']],
+        'items' => [    
+            ['label' => 'Главная', 'url' => Yii::$app->homeUrl],
             ['label' => 'Контакты', 'url' => ['/site/contact']],
-            ['label' => 'Соц.сети', 'url' => ['/site/sociat']],
-            ['label' => 'Поиск', 'url' => ['/site/search']],
-        ],
+            ['label' => 'Соц.сети',
+             'items' =>[
+                 
+                 ['label' => 'Twitter', 'img'=>'','url' => 'https://twitter.com/Artur_ISYMS'],
+                 ['label' => 'Telegram channel', 'url' => 'http://telegram.me/ISYMS'],
+                 ['label' => 'Linkedin', 'url' => 'https://ua.linkedin.com/in/артур-легуша-8623b589'],
+             ],
+             ],
+            //['label' => 'Поиск', 'url' => '#'],
+            '<li class="seach"><img src="/web/image/ssearch.png" /></li>',
+         ],
+        
     ]);
     NavBar::end();
     ?>
-
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

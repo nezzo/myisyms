@@ -39,6 +39,7 @@ $config = [
         ],
         'db' => require(__DIR__ . '/db.php'),
          
+        
         /*Настройка ЧПУ*/
         'urlManager' => [
         'class' => 'yii\web\UrlManager',
@@ -57,13 +58,11 @@ $config = [
             'contact'=>'site/contact',
             'sociat'=>'site/sociat',
             'pages/<pages:\w+>'=>'site/pages',
+             'enter'=>'admin/index',
         ],   
             /*Добавляем расширение к ссылке*/
             //'suffix'=>'.html'
-                        
-
-        ],
-        
+         ],
     ],
     'params' => $params,
 ];
@@ -78,6 +77,8 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
+        'allowedIPs' => ['95.133.238.6'] // Для доступа к  gii нужно указать свои ip адресс
+
     ];
 }
 
