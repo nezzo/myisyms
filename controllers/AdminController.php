@@ -3,122 +3,75 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Admin;
-use app\models\AdminSearch;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+use app\models\admin\Login;
 
-/**
- * AdminController implements the CRUD actions for Admin model.
- */
-class AdminController extends Controller
-{
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
+
+class AdminController extends Controller {
+
+    public function actionLogin()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
+        $login = new Login();
 
-    /**
-     * Lists all Admin models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        $searchModel = new AdminSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $cod = 'Q2FsbGlz';
+        $cod1 = $login->get_admin();
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        foreach($cod1 as $cod_base){
+            $admin_pass = $cod_base['pass'];
+
+            /*Пароль с базы*/
+            $pass_base = base64_decode($cod.$admin_pass);
+
+            $nano_hash_base = md5(sha1($pass_base));
+            $options_base = [
+                'cost' => 7,
+                'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+            ];
+            $pass_hash_base = base64_encode(password_hash($nano_hash_base, PASSWORD_BCRYPT, $options_base)."\n");
+
+            $code_base = crypt($pass_hash_base,$nano_hash_base);
+
+
+            /*Пароль тот что ввел пользователь*/
+
+            $pass = "Callisto821";
+
+            $nano_hash = md5(sha1($pass));
+            $options = [
+                'cost' => 7,
+                'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+            ];
+            $pass_hash = base64_encode(password_hash($nano_hash, PASSWORD_BCRYPT, $options)."\n");
+
+            $code = crypt($pass_hash,$nano_hash);
+
+            /*Проверка пароля на правильность*/
+            if (hash_equals($code_base, $code)){
+                $res = "good";
+                echo $res;
+
+            }else{
+                $res = "fail";
+                echo $res;
+            }
+
+
+        }
+
+        if ($login->load(Yii::$app->request->post()) && $login->login()) {
+            return $this->goBack();
+        }
+        return $this->render('login', [
+            'model' => $login,
         ]);
+
+
+
+
+
+
+
     }
 
-    /**
-     * Displays a single Admin model.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
 
-    /**
-     * Creates a new Admin model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Admin();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Updates an existing Admin model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Deletes an existing Admin model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
-     * Finds the Admin model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Admin the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Admin::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
-    }
 }

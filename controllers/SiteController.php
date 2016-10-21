@@ -127,8 +127,7 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-    
-    
+
     /*Создаем страницу и выводим новость, принимает id  записи базы по get запросу
      *      */
     public function actionPages()

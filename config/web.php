@@ -57,8 +57,8 @@ $config = [
             'index'=>'site/index',
             'contact'=>'site/contact',
             'sociat'=>'site/sociat',
-            'pages/<pages:\w+>'=>'site/pages',
-             'enter'=>'admin/index',
+             'pages/<pages:\w+>'=>'site/pages',
+             'enter'=>'admin/login',
         ],   
             /*Добавляем расширение к ссылке*/
             //'suffix'=>'.html'

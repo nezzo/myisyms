@@ -10,13 +10,13 @@ $this->title = 'Официальный сайт ISYMS';
             <div class="top_info">
                 <p>Портал веб-разработчика.</p>
             </div>
-        </div>    
-        
+        </div>
+
 
         <div class="row">
             <div class="news_module">
                 <?php foreach($news_index as $news){ ?>
-                     <div class="col-md-4"> 
+                     <div class="col-md-4">
                          <div class="news_project">
                             <div class="news_name">
                                 <a href="/pages/<?=$news['id']?>"><?=$news['name']?></a>
@@ -30,12 +30,12 @@ $this->title = 'Официальный сайт ISYMS';
                             <div class="data">
                             <?=$news['data']?>
                             </div>
-                         </div>    
-                     </div>    
-                
+                         </div>
+                     </div>
+
                    <?php } ?>
             </div>
-      </div> 
+      </div>
 
     </div>
 </div>
