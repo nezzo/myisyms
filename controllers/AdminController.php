@@ -1,76 +1,82 @@
 <?php
 
+#@TODO нужно будет сделать что бы когда авторизиловались данные записались в базу (ип адреса и когда авторизировались)
+
 namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
 use app\models\admin\Login;
-
+use app\models\admin\Blog;
+use yii\web\Session;
+use yii\data\Pagination;
 
 class AdminController extends Controller {
 
+
     public function actionLogin()
     {
-        $login = new Login();
 
-        $cod = 'Q2FsbGlz';
-        $cod1 = $login->get_admin();
+        $login_obj = new Login();
 
-        foreach($cod1 as $cod_base){
-            $admin_pass = $cod_base['pass'];
+        /* Полученные данные отправляем в модель классу Login и получаем ответ TRUE или FALSE*/
+        if (Yii::$app->request->post('Login')){
+            $login_obj->attributes = Yii::$app->request->post('Login');
 
-            /*Пароль с базы*/
-            $pass_base = base64_decode($cod.$admin_pass);
+            /*Результат валидации если True то выполняем данное действие*/
+            if($login_obj -> validatePassword($login_obj->attributes)){
 
-            $nano_hash_base = md5(sha1($pass_base));
-            $options_base = [
-                'cost' => 7,
-                'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
-            ];
-            $pass_hash_base = base64_encode(password_hash($nano_hash_base, PASSWORD_BCRYPT, $options_base)."\n");
-
-            $code_base = crypt($pass_hash_base,$nano_hash_base);
+                /*Получаем ип адресс пользователя, создаем сессию и редиректим на главную страницу админки*/
+                $session = Yii::$app->session;
+                $session->open();
+                $session['admin_ip'] = $_SERVER["REMOTE_ADDR"];
+                return $this->redirect(['index']);
 
 
-            /*Пароль тот что ввел пользователь*/
-
-            $pass = "Callisto821";
-
-            $nano_hash = md5(sha1($pass));
-            $options = [
-                'cost' => 7,
-                'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
-            ];
-            $pass_hash = base64_encode(password_hash($nano_hash, PASSWORD_BCRYPT, $options)."\n");
-
-            $code = crypt($pass_hash,$nano_hash);
-
-            /*Проверка пароля на правильность*/
-            if (hash_equals($code_base, $code)){
-                $res = "good";
-                echo $res;
-
-            }else{
-                $res = "fail";
-                echo $res;
             }
-
-
         }
 
-        if ($login->load(Yii::$app->request->post()) && $login->login()) {
-            return $this->goBack();
-        }
-        return $this->render('login', [
-            'model' => $login,
+        /*Хрень связаная с формой для авторизации*/
+        return $this->render('login',[
+            'model'=> $login_obj,
         ]);
 
+    }
+
+    public function actionIndex(){
+
+        /*Подключение менюшки к админке layouts/admin/main.php*/
+        $this->layout = '/admin/main';
+
+        return $this->render('index');
+
+    }
+
+    /*Функция по выходу*/
+    public function actionLogout(){
+        return $this->render('logout');
+    }
+
+   /*Выводим список записей постов (главные функции которые удаление,редактирование,создание)*/
+    public function actionBlog(){
+        #@TODO надо настроить пагинацию в Блоге
+        /*Подключение менюшки к админке layouts/admin/main.php*/
+        $this->layout = '/admin/main';
+
+        $news = new Blog();
+
+        return $this->render('blog',[
+            'news' => $news->get_all_post(),
+        ]);
+    }
 
 
+    /*Создание постов*/
+    public function actionCreate_post(){
+        /*Подключение менюшки к админке layouts/admin/main.php*/
+        $this->layout = '/admin/main';
 
-
-
-
+        return $this->render('create_post');
     }
 
 

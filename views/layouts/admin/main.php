@@ -1,16 +1,14 @@
 <?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
+/*Создаем меню для Админки*/
 
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
-
 AppAsset::register($this);
 ?>
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -20,7 +18,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-    <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/admin.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -28,7 +26,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'ISYMS | Программирование',
+        'brandLabel' => 'Админ-панель | ISYMS',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top top_menu',
@@ -36,22 +34,14 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [    
-            ['label' => 'Главная', 'url' => Yii::$app->homeUrl],
-            ['label' => 'Контакты', 'url' => ['/site/contact']],
-            ['label' => 'Соц.сети',
-             'items' =>[
-                 
-                 ['label' => 'Twitter', 'img'=>'','url' => 'https://twitter.com/Artur_ISYMS'],
-                 ['label' => 'Telegram channel', 'url' => 'http://telegram.me/ISYMS'],
-                 ['label' => 'Linkedin', 'url' => 'https://ua.linkedin.com/in/артур-легуша-8623b589'],
-             ],
-             ],
-            //['label' => 'Поиск', 'url' => '#'],
-            '<li class="seach"><img src="/web/image/ssearch.png" /></li>',
+        'items' => [
+            ['label' => 'Главная', 'url' => 'admin'],
+            ['label' => 'Блог', 'url' => 'blog'],
+            ['label' => 'Выход', 'url' => 'logout'],
 
-         ],
-        
+
+        ],
+
     ]);
     NavBar::end();
     ?>
@@ -73,4 +63,5 @@ AppAsset::register($this);
 </body>
 </html>
 <?php $this->endPage() ?>
+
 

@@ -8,12 +8,10 @@
 
 namespace app\models\admin;
 
+use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
 
-class User extends Models
+class User
 {
-    public $id;
-    public $login;
-    public $pass;
-
 
 }

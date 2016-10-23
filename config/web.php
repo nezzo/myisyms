@@ -57,8 +57,13 @@ $config = [
             'index'=>'site/index',
             'contact'=>'site/contact',
             'sociat'=>'site/sociat',
+             'error'=>'site/error',
              'pages/<pages:\w+>'=>'site/pages',
              'enter'=>'admin/login',
+             'admin'=>'admin/index',
+             'logout'=>'admin/logout',
+             'create-post'=>'admin/create_post',
+             'blog'=>'admin/blog',
         ],   
             /*Добавляем расширение к ссылке*/
             //'suffix'=>'.html'

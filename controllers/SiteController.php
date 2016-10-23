@@ -151,7 +151,8 @@ class SiteController extends Controller
         ]);   
             
         }else{
-            echo "Page Error!";
+            header('Location: http://'.$_SERVER['HTTP_HOST'].'/'.'error');
+            die();
         }
         
     }
