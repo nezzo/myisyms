@@ -10,6 +10,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\News_index;
 use app\models\Pages_News;
+use yii\data\Pagination;
 
 class SiteController extends Controller
 {
@@ -64,9 +65,12 @@ class SiteController extends Controller
     {
         /*Выводим новости на главную*/
         $news_index = new News_index();
-        
+
+
+        $pagination = new Pagination(['totalCount' => $news_index->total(), 'pageSize' => 6]);
         return $this->render('index',[
-            'news_index' => $news_index->rows_news(),
+            'news_index' => $news_index->rows_news($pagination->offset,$pagination->limit),
+            'pages' => $pagination,
         ]);
        
     }

@@ -16,18 +16,28 @@ use yii\db\ActiveRecord;
  *
  * @author nestor
  */
-/*Выводим на главную с базы последние добавленные записи*/
+
 class News_index extends Model{
-    
-    
-    function rows_news(){
+
+    /*Выводим на главную с базы последние добавленные записи*/
+    function rows_news($offset, $limit){
         $rows = (new \yii\db\Query())
         ->select(['id','name','image', 'description', 'data'])
         ->from('news_blogpost')
-        ->limit(9)
+        ->offset($offset)
+        ->limit($limit)
         ->all();
         
         return $rows;
         }
+
+    /*Подсчитываем количество строк в таблице*/
+    public function total(){
+        $rows = (new \yii\db\Query())
+            ->select(['id','name','image','description','keywords','data'])
+            ->from('news_blogpost')
+            ->all();
+        return count($rows);
+    }
     
 }

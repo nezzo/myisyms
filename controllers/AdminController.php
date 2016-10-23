@@ -10,6 +10,9 @@ use app\models\admin\Login;
 use app\models\admin\Blog;
 use yii\web\Session;
 use yii\data\Pagination;
+use app\models\admin\CreatePost;
+
+
 
 class AdminController extends Controller {
 
@@ -59,14 +62,20 @@ class AdminController extends Controller {
 
    /*Выводим список записей постов (главные функции которые удаление,редактирование,создание)*/
     public function actionBlog(){
-        #@TODO надо настроить пагинацию в Блоге
-        /*Подключение менюшки к админке layouts/admin/main.php*/
-        $this->layout = '/admin/main';
 
+        $this->layout = '/admin/main';
         $news = new Blog();
 
+        /*Подключаем пагинацию  и выводим на страницу:
+          'pageSize' => 5] - количество записей на странице
+         'totalCount' => count($news->get_all_post()) - количество страниц == количеству записей
+          */
+        $pagination = new Pagination(['totalCount' => $news->total(), 'pageSize' => 5]);
+
+        /*Выводим пагинацию на страницу*/
         return $this->render('blog',[
-            'news' => $news->get_all_post(),
+            'news' => $news->get_all_post($pagination->offset,$pagination->limit),
+            'pages' => $pagination,
         ]);
     }
 
@@ -76,7 +85,16 @@ class AdminController extends Controller {
         /*Подключение менюшки к админке layouts/admin/main.php*/
         $this->layout = '/admin/main';
 
-        return $this->render('create_post');
+         $create = new CreatePost();
+        if (Yii::$app->request->post('Create_post')){
+            $create->attributes = Yii::$app->request->post('Create_post');
+        }
+
+
+            return $this->render('create_post',[
+                'model'=> $create
+            ]);
+
     }
 
 

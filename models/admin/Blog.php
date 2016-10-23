@@ -15,14 +15,25 @@ class Blog extends Model
 {
 
     /*Выводим все новости что есть */
-    public function get_all_post(){
+    public function get_all_post($offset, $limit){
         $rows = (new \yii\db\Query())
-            ->select(['id','name','image','description','data'])
+            ->select(['id','name','image','description','keywords','data'])
             ->from('news_blogpost')
+            ->offset($offset)
+            ->limit($limit)
             ->all();
 
         return $rows;
 
+    }
+
+    /*Подсчитываем количество строк в таблице*/
+    public function total(){
+        $rows = (new \yii\db\Query())
+            ->select(['id','name','image','description','keywords','data'])
+            ->from('news_blogpost')
+            ->all();
+        return count($rows);
     }
 
 }

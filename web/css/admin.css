@@ -34,7 +34,18 @@ header {
     margin-bottom: 20px;
     border: 1px solid black;
 }
-.blog-news-name,.blog-news-decription,.blog-news-image, .blog-news-data {
+.blog-news-name,.blog-news-decription,.blog-news-image, .blog-news-data,.blog-news-keywords {
     border-right: 1px solid black;
     height: 100px;
+    overflow: hidden;
+}
+.pagination_blog {
+    float: right;
+}
+a.btn.btn-primary.btn-sm.create_post {
+    margin-bottom: 10px;
+    float: left;
+}
+.blog-news-edit img {
+    margin-top: 20px;
 }

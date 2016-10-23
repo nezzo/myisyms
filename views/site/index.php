@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
+use yii\widgets\LinkPager;
 
 $this->title = 'Официальный сайт ISYMS';
 ?>
@@ -34,6 +35,15 @@ $this->title = 'Официальный сайт ISYMS';
                      </div>
 
                    <?php } ?>
+                <div class="col-md-12">
+                    <div class="pagination_blog">
+                        <?php
+                        echo LinkPager::widget([
+                            'pagination' => $pages,
+                        ]);
+                        ?>
+                    </div>
+                </div>
             </div>
       </div>
 

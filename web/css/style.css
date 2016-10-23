@@ -127,3 +127,6 @@ li.seach {
     color: #fff;
     margin-top: 4%;
 }
+.pagination_blog {
+    float: right;
+}

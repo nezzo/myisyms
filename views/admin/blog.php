@@ -1,8 +1,9 @@
 <?php
 
 /* @var $this yii\web\View */
-
+use yii\widgets\LinkPager;
 $this->title = 'Блог ISYMS';
+
 ?>
 
 <?php
@@ -13,6 +14,9 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
     die();
 }
 ?>
+<div class="col-md-12">
+    <a href="/create-post" class="btn btn-primary btn-sm create_post">Создать пост</a>
+</div>
 <div class="block_news">
     <?php foreach ($news as $news_blog) { ?>
 
@@ -28,7 +32,14 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
                         <?=$news_blog['description']?>
                     </div>
                  </div>
-                 <div class="col-md-2">
+
+                <div class="col-md-2">
+                    <div class="blog-news-keywords">
+                        <?=$news_blog['keywords']?>
+                    </div>
+                </div>
+
+                 <div class="col-md-1">
                     <div class="blog-news-image">
                         <?=$news_blog['image']?>
                     </div>
@@ -39,9 +50,14 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
                     </div>
                  </div>
 
-                 <div class="col-md-2">
+                 <div class="col-md-1">
                     <div class="blog-news-edit">
-
+                        <div class="col-md-12">
+                            <a href="/create-post"><img src="/web/image/admin/edit.gif"/></a>
+                        </div>
+                        <div class="col-md-12">
+                            <a href="/del-post"><img src="/web/image/admin/del.png"/></a>
+                        </div>
                     </div>
                  </div>
 
@@ -49,5 +65,11 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
         </div>
 
     <?php } ?>
-
+    <div class="pagination_blog">
+    <?php
+    echo LinkPager::widget([
+        'pagination' => $pages,
+    ]);
+    ?>
+    </div>
 </div>
