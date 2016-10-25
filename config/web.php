@@ -64,6 +64,7 @@ $config = [
              'logout'=>'admin/logout',
               'blog'=>'admin/blog',
              'create-post'=>'admin/create_post',
+             'edit-post'=>'admin/edit_post',
              'del-post'=>'admin/del_post',
         ],   
             /*Добавляем расширение к ссылке*/

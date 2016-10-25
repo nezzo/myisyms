@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost:3306
--- Время создания: Окт 20 2016 г., 04:38
+-- Время создания: Окт 25 2016 г., 03:56
 -- Версия сервера: 5.6.33-cll-lve
 -- Версия PHP: 5.6.20
 
@@ -30,9 +30,15 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `login` varchar(30) NOT NULL,
   `pass` varchar(30) NOT NULL,
-  `data` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `admin`
+--
+
+INSERT INTO `admin` (`id`, `login`, `pass`) VALUES
+(1, 'admin', 'dG84MjE=');
 
 -- --------------------------------------------------------
 
@@ -63,46 +69,25 @@ INSERT INTO `contact` (`id`, `email`, `skype`) VALUES
 CREATE TABLE IF NOT EXISTS `news_blogpost` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `meta-title` varchar(255) NOT NULL,
   `description` longtext NOT NULL,
+  `keywords` varchar(255) NOT NULL,
   `data` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Дамп данных таблицы `news_blogpost`
 --
 
-INSERT INTO `news_blogpost` (`id`, `name`, `image`, `description`, `data`) VALUES
-(1, 'Test1', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '2016-10-16 00:00:00.000000'),
-(2, 'Test2', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '2016-10-16 00:00:00.000000'),
-(3, 'Test3', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '2016-10-16 00:00:00.000000'),
-(4, 'Test4', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '2016-10-16 00:00:00.000000'),
-(5, 'Test5', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '2016-10-16 00:00:00.000000'),
-(6, 'Test6', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '2016-10-16 00:00:00.000000'),
-(7, 'Test7', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '2016-10-16 00:00:00.000000');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `post`
---
-
-CREATE TABLE IF NOT EXISTS `post` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `description` longtext NOT NULL,
-  `data` datetime(6) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Дамп данных таблицы `post`
---
-
-INSERT INTO `post` (`id`, `name`, `image`, `description`, `data`) VALUES
-(1, 'Test1', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '2016-10-10 00:00:00.000000');
+INSERT INTO `news_blogpost` (`id`, `name`, `meta-title`, `description`, `keywords`, `data`) VALUES
+(1, 'Test1', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '', '2016-10-16 00:00:00.000000'),
+(2, 'Test2', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '', '2016-10-16 00:00:00.000000'),
+(3, 'Test3', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '', '2016-10-16 00:00:00.000000'),
+(4, 'Test4', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '', '2016-10-16 00:00:00.000000'),
+(5, 'Test5', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '', '2016-10-16 00:00:00.000000'),
+(6, 'Test6', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '', '2016-10-16 00:00:00.000000'),
+(7, 'Test7', '', 'Lorem ipsum adipiscing sit ligula urna adipiscing, pellentesque lorem adipiscing, non in ornare molestie eros sem, sodales. Mattis sed, auctor donec, proin nec odio quam rutrum cursus donec lectus maecenas lectus urna curabitur eget cursus, et morbi proin ut. Amet lorem sed morbi, non sit nibh, sagittis cursus rutrum vitae sit non arcu sem, ornare. Ultricies sagittis amet molestie, malesuada porta ultricies in fusce in, vitae nulla sapien sem. Duis in leo quisque fusce sodales orci ipsum risus sapien metus orci porttitor, sem integer malesuada auctor metus, sed quam massa. Nam nulla gravida sagittis odio commodo ultricies ornare tellus, bibendum tempus: sapien elementum vivamus maecenas enim duis, donec sapien curabitur, et magna mauris sed. Vulputate: porttitor fusce quisque pellentesque at elementum bibendum urna diam at.', '', '2016-10-16 00:00:00.000000');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -7,7 +7,7 @@ $this->title = 'Создать пост ISYMS';
 ?>
 
 <?php
-/*Если Ip адресс и сессия не совпадают то мы редиректим на страницу с ошибкой*/
+/*Если Ip адресс и сессия не совпадают то мы редире632ктим на страницу с ошибкой*/
 $session = Yii::$app->session;
 if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
     header('Location: http://'.$_SERVER['HTTP_HOST'].'/'.'error');
@@ -22,7 +22,7 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
         <div class="post">
 
             <?php $form = ActiveForm::begin([
-                'id' => 'post-form',
+                'id' => 'edit-form',
                 'options' => ['class' => 'form-horizontal'],
                 'fieldConfig' => [
                     'template' => "{label}\n<div class=\"col-lg-4\">{input}</div>\n<div class=\"col-lg-6\">{error}</div>",
@@ -65,5 +65,5 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
             'alignleft aligncenter alignright'
         ]
 
-});</script>
+    });</script>
 </div>

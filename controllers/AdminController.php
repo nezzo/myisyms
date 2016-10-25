@@ -11,6 +11,7 @@ use app\models\admin\Blog;
 use yii\web\Session;
 use yii\data\Pagination;
 use app\models\admin\CreatePost;
+use app\models\admin\EditPost;
 
 
 
@@ -86,15 +87,31 @@ class AdminController extends Controller {
         $this->layout = '/admin/main';
 
          $create = new CreatePost();
-        if (Yii::$app->request->post('Create_post')){
-            $create->attributes = Yii::$app->request->post('Create_post');
-        }
 
+        /*Получаем данные методом пост и проверяем не пустые ли. Передаем в модель */
+            if(!empty(Yii::$app->request->post(CreatePost))){
+                $post = Yii::$app->request->post('CreatePost');
+                $create->post_save($post);
+            }
 
             return $this->render('create_post',[
-                'model'=> $create
+                'model'=> $create,
+
             ]);
 
+    }
+
+    /*Редактируем выбранные посты*/
+    public function actionEdit_post(){
+
+        $this->layout = '/admin/main';
+
+        $edit = new EditPost();
+
+        #@TODO почему то не работает вид, показывает белый экран нужно разобраться почему.
+        $this->render('edit_post',[
+            'model' => $edit
+            ]);
     }
 
 

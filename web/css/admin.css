@@ -49,3 +49,8 @@ a.btn.btn-primary.btn-sm.create_post {
 .blog-news-edit img {
     margin-top: 20px;
 }
+button.btn.btn-primary.save_button {
+    float: right;
+    right: 35%;
+    position: relative;
+}

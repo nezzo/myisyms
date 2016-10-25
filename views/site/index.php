@@ -22,9 +22,6 @@ $this->title = 'Официальный сайт ISYMS';
                             <div class="news_name">
                                 <a href="/pages/<?=$news['id']?>"><?=$news['name']?></a>
                             </div>
-                             <div class="news_image">
-                            <?=$news['image']?>
-                            </div>
                             <div class="news_decription">
                             <?=$news['description']?>
                             </div>

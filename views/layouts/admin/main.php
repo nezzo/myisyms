@@ -19,6 +19,7 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <link href="../css/admin.css" rel="stylesheet" type="text/css"/>
+
 </head>
 <body>
 <?php $this->beginBody() ?>
