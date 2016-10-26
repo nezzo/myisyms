@@ -3,6 +3,8 @@
 /* @var $this yii\web\View */
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use app\assets\TinymceAsset;
+
 $this->title = 'Создать пост ISYMS';
 
 /*Если Ip адресс и сессия не совпадают то мы редиректим на страницу с ошибкой*/
@@ -43,28 +45,5 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
         <?php } ?>
 
     </div>
-    <script src="/assets/tinymce/js/tinymce/tinymce.min.js"></script>
-
-<script>tinymce.init({
-        selector:'textarea',
-        menu: {
-            file: {title: 'File', items: 'newdocument'},
-            edit: {title: 'Edit', items: 'undo redo | cut copy paste pastetext | selectall'},
-            insert: {title: 'Insert', items: 'link media | template hr'},
-            view: {title: 'View', items: 'visualaid'},
-            format: {title: 'Format', items: 'bold italic underline strikethrough superscript subscript | formats | removeformat'},
-            table: {title: 'Table', items: 'inserttable tableprops deletetable | cell row column'},
-            tools: {title: 'Tools', items: 'spellchecker code'}
-        },
-        height : 300,
-        width: 600,
-        mode: 'textareas',
-        preview_styles: false,
-        resize: false,
-        toolbar: [
-            'undo redo | styleselect | bold italic | link image',
-            'alignleft aligncenter alignright'
-        ]
-
-    });</script>
 </div>
+<?php TinymceAsset::register($this);?>

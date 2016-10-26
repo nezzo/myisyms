@@ -48,12 +48,35 @@ a.btn.btn-primary.btn-sm.create_post {
     margin-bottom: 10px;
     float: left;
 }
-.blog-news-edit img {
-    margin-top: 20px;
+.blog-news-edit {
+    position: relative;
 }
 button.btn.btn-primary.save_button {
     float: right;
     right: 35%;
     position: relative;
 }
-
+.get_name_post {
+    text-align: center;
+    margin-bottom: 50px;
+}
+a.btn.btn-primary.btn-sm.delete_post {
+    margin-bottom: 50px;
+}
+button.btn.btn-primary.delete_button {
+    float: right;
+    right: 20%;
+    position: relative;
+}
+.get_name_post p {
+    font-size: 20px;
+}
+.button_create {
+    position: absolute;
+    top: 15px;
+}
+.button_del {
+    position: absolute;
+    top: 50px;
+    cursor: pointer;
+}

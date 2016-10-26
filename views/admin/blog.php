@@ -2,6 +2,10 @@
 
 /* @var $this yii\web\View */
 use yii\widgets\LinkPager;
+
+/*Подключаем скрипт со своим js*/
+use app\assets\BlogAsset;
+
 $this->title = 'Блог ISYMS';
 
 ?>
@@ -53,10 +57,10 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
                  <div class="col-md-1">
                     <div class="blog-news-edit">
                         <div class="col-md-12">
-                            <a href="/edit-post/<?=$news_blog['id']?>"><img src="/web/image/admin/edit.gif"/></a>
+                            <div class="button_create"><a href="/edit-post/<?=$news_blog['id']?>"><img src="/web/image/admin/edit.gif"/></a></div>
                         </div>
                         <div class="col-md-12">
-                            <a href="/del-post/<?=$news_blog['id']?>"><img src="/web/image/admin/del.png"/></a>
+                            <div class="button_del"><a href="/del-post/<?=$news_blog['id']?>"><img src="/web/image/admin/del.png"/></a></div>
                         </div>
                     </div>
                  </div>
@@ -73,3 +77,7 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
     ?>
     </div>
 </div>
+
+<?php /*Подключаем свои скрипты*/
+BlogAsset::register($this);
+?>

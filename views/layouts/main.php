@@ -21,6 +21,7 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="/web/image/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <?php $this->beginBody() ?>

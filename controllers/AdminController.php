@@ -131,8 +131,11 @@ class AdminController extends Controller {
 
         $del = new DeletePost();
 
+        $id = Yii::$app->request->get('post');
+        $del->del($id);
+
         return $this->render('del_post',[
-            'del' => $del
+            'del' => $del,
         ]);
     }
 
