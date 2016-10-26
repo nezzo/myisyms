@@ -32,7 +32,7 @@ class CreatePost extends Model
 
     /*Получаем данные с полей и заносим в базу*/
     public function post_save ($post){
-        $today = date("H:i:s Y-m-d");
+        $today = date("H:i:s d-m-Y");
 
        $save = Yii::$app->db->createCommand()
             ->insert('news_blogpost', [

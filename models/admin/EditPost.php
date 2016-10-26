@@ -29,17 +29,19 @@ class EditPost extends Model
 
 
     /*Получаем данные с полей и заносим в базу*/
-    public function post_save ($post){
-        $today = date("H:i:s Y-m-d");
+    public function post_save ($post,$id){
+        $today = date("H:i:s d-m-Y");
 
+        /*Обновляем запись в базе данных*/
         $save = Yii::$app->db->createCommand()
-            ->insert('news_blogpost', [
+            ->update('news_blogpost', [
                 'name' => $post['name'],
                 'meta-title' => $post['meta'],
                 'description' => $post['description'],
                 'keywords' => $post['keywords'],
-                'data' => $today
-            ])->execute();
+                'data' => $today,
+            ], 'id=:id', array(':id'=> (int)$id))
+            ->execute();
 
         return $save;
     }
@@ -49,7 +51,7 @@ class EditPost extends Model
         $rows = (new \yii\db\Query())
             ->select(['id','name','meta-title','description','keywords','data'])
             ->from('news_blogpost')
-            ->where($id)
+            ->where(['id' => (int)$id])
             ->all();
 
         return $rows;

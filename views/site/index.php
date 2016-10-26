@@ -1,4 +1,5 @@
 <?php
+#@TODO  тут нужно выводить по дате чем новее дата ту статью и ставить на первое место
 
 /* @var $this yii\web\View */
 use yii\widgets\LinkPager;

@@ -9,6 +9,12 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'Войти в систему';
 $this->params['breadcrumbs'][] = $this->title;
+
+/*Если Ip адресс и сессия не совпадают то мы редире632ктим на страницу с ошибкой*/
+$session = Yii::$app->session;
+if ($session['admin_ip'] == $_SERVER["REMOTE_ADDR"]){
+    header('Location: http://'.$_SERVER['HTTP_HOST'].'/'.'admin');
+}
 ?>
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>

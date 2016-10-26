@@ -4,6 +4,7 @@
 
 namespace app\controllers;
 
+use app\models\admin\DeletePost;
 use Yii;
 use yii\web\Controller;
 use app\models\admin\Login;
@@ -89,14 +90,13 @@ class AdminController extends Controller {
          $create = new CreatePost();
 
         /*Получаем данные методом пост и проверяем не пустые ли. Передаем в модель */
-            if(!empty(Yii::$app->request->post(CreatePost))){
+            if(!empty(Yii::$app->request->post('CreatePost'))){
                 $post = Yii::$app->request->post('CreatePost');
                 $create->post_save($post);
             }
 
             return $this->render('create_post',[
                 'model'=> $create,
-
             ]);
 
     }
@@ -108,10 +108,32 @@ class AdminController extends Controller {
 
         $edit = new EditPost();
 
-        #@TODO почему то не работает вид, показывает белый экран нужно разобраться почему.
-        $this->render('edit_post',[
-            'model' => $edit
+        /*Получаем ид поста для редактирования*/
+        $id = Yii::$app->request->get('post');
+        $mas_news = $edit->get_post($id);
+
+
+        /*Заносим измененные данные в базу*/
+        if(!empty(Yii::$app->request->post('EditPost'))){
+            $post = Yii::$app->request->post('EditPost');
+            $edit->post_save($post,$id);
+            $mas_news = $edit->get_post($id);
+        }
+
+        return $this->render('edit_post',[
+            'model' => $edit,
+            'mas' => $mas_news,
             ]);
+    }
+
+    public function actionDel_post(){
+        $this->layout = '/admin/main';
+
+        $del = new DeletePost();
+
+        return $this->render('del_post',[
+            'del' => $del
+        ]);
     }
 
 

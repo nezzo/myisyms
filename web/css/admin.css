@@ -33,6 +33,8 @@ header {
     overflow-y: hidden;
     margin-bottom: 20px;
     border: 1px solid black;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #fff;
 }
 .blog-news-name,.blog-news-decription,.blog-news-image, .blog-news-data,.blog-news-keywords {
     border-right: 1px solid black;
@@ -54,3 +56,4 @@ button.btn.btn-primary.save_button {
     right: 35%;
     position: relative;
 }
+

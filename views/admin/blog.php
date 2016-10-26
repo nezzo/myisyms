@@ -53,10 +53,10 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
                  <div class="col-md-1">
                     <div class="blog-news-edit">
                         <div class="col-md-12">
-                            <a href="/edit-post"><img src="/web/image/admin/edit.gif"/></a>
+                            <a href="/edit-post/<?=$news_blog['id']?>"><img src="/web/image/admin/edit.gif"/></a>
                         </div>
                         <div class="col-md-12">
-                            <a href="/del-post"><img src="/web/image/admin/del.png"/></a>
+                            <a href="/del-post/<?=$news_blog['id']?>"><img src="/web/image/admin/del.png"/></a>
                         </div>
                     </div>
                  </div>

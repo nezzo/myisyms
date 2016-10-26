@@ -143,13 +143,11 @@ class SiteController extends Controller
         if (!empty($mas_news)){
          foreach ($mas_news as $news){
             $name = $news['name'];
-            $image = $news['image'];
             $description = $news['description'];
             $data = $news['data'];
         }
         return $this->render('pages',[
             'name'=> $name,
-            'image'=>$image,
             'description'=>$description,
             'data'=>$data
         ]);   
