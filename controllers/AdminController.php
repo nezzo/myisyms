@@ -93,6 +93,7 @@ class AdminController extends Controller {
             if(!empty(Yii::$app->request->post('CreatePost'))){
                 $post = Yii::$app->request->post('CreatePost');
                 $create->post_save($post);
+                header('Location: http://'.$_SERVER['HTTP_HOST'].'/'.'blog');
             }
 
             return $this->render('create_post',[
@@ -118,6 +119,7 @@ class AdminController extends Controller {
             $post = Yii::$app->request->post('EditPost');
             $edit->post_save($post,$id);
             $mas_news = $edit->get_post($id);
+            header('Location: http://'.$_SERVER['HTTP_HOST'].'/'.'blog');
         }
 
         return $this->render('edit_post',[
@@ -126,6 +128,7 @@ class AdminController extends Controller {
             ]);
     }
 
+    /*Метод по удалению постов*/
     public function actionDel_post(){
         $this->layout = '/admin/main';
 

@@ -20,7 +20,7 @@ class Pages_News extends Model {
     
     function pages_get($id){
         $rows = (new \yii\db\Query())
-        ->select(['name','description', 'data'])
+        ->select(['id','name','meta-title','description','keywords','data'])
         ->from('news_blogpost')
         ->where(['id' => (int)$id])
         ->all();

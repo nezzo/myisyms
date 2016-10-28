@@ -142,11 +142,15 @@ class SiteController extends Controller
         
         if (!empty($mas_news)){
          foreach ($mas_news as $news){
+            $title = $news['meta-title'];
+            $keywords = $news['keywords'];
             $name = $news['name'];
             $description = $news['description'];
             $data = $news['data'];
         }
         return $this->render('pages',[
+            'title' => $title,
+            'keywords'=> $keywords,
             'name'=> $name,
             'description'=>$description,
             'data'=>$data
@@ -157,6 +161,11 @@ class SiteController extends Controller
             die();
         }
         
+    }
+
+    public function actionSearch(){
+
+        return $this->render('search');
     }
     
 }

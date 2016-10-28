@@ -1,2 +1,14 @@
 User-agent: *
-Disallow:
+Disallow: /assets/
+Disallow: /BD/
+Disallow: /commands/
+Disallow: /config/
+Disallow: /controllers/
+Disallow: /isyms/
+Disallow: /mail/
+Disallow: /models/
+Disallow: /nbproject/
+Disallow: /runtime/
+Disallow: /tests/
+Disallow: /vendor/
+Disallow: /views/

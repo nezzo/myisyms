@@ -21,6 +21,9 @@ class Blog extends Model
             ->from('news_blogpost')
             ->offset($offset)
             ->limit($limit)
+            ->orderBy([
+                'data' => SORT_DESC
+            ])
             ->all();
 
         return $rows;

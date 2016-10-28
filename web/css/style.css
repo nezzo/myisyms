@@ -94,6 +94,7 @@ header {
 }
 .page_name h1 {
     color: #008cba;
+    font-size: 20px;
 }
 .page_name {
     border-bottom: 1px solid #e5e5e5;

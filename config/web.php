@@ -58,6 +58,7 @@ $config = [
             'contact'=>'site/contact',
             'sociat'=>'site/sociat',
              'error'=>'site/error',
+             'search'=>'site/search',
              'pages/<pages:\w+>'=>'site/pages',
              'enter'=>'admin/login',
              'admin'=>'admin/index',
@@ -66,7 +67,7 @@ $config = [
              'create-post'=>'admin/create_post',
              'edit-post/<post:\w+>'=>'admin/edit_post',
              'del-post/<post:\w+>'=>'admin/del_post',
-        ],   
+        ],
             /*Добавляем расширение к ссылке*/
             //'suffix'=>'.html'
          ],

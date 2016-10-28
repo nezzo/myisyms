@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use app\assets\TinymceAsset;
 
-$this->title = 'Редактировать пост ISYMS';
+$this->title = 'Создать пост ISYMS';
 ?>
 
 <?php

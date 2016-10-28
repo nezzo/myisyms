@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use app\assets\TinymceAsset;
 
-$this->title = 'Создать пост ISYMS';
+$this->title = 'Редактировать пост ISYMS';
 
 /*Если Ip адресс и сессия не совпадают то мы редиректим на страницу с ошибкой*/
 $session = Yii::$app->session;

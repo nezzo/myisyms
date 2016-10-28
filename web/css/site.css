@@ -93,3 +93,11 @@ a.desc:after {
     width: 150px;
     height: auto;
 }
+.cse .gsc-search-button input.gsc-search-button-v2, input.gsc-search-button-v2  {
+    width: 70px !important;
+    height: 30px !important;
+
+}
+.gsc-input-box {
+    height: 30px !important;
+}

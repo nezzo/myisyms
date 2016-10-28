@@ -1,3 +1,12 @@
+<?php
+/*Регистрация тегов keywords*/
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => "$keywords"
+]);
+$this->title = "$title ISYMS";
+?>
+
 <div class="page_content">
     <div class="tab-data">
             <?=$data?>
