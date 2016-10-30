@@ -49,6 +49,7 @@ header {
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     background-color: #fff;
+    height: 300px;
 }
 .news_name {
     display: inline;

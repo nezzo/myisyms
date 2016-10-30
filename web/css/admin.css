@@ -36,7 +36,8 @@ header {
     border-radius: 10px 10px 10px 10px;
     background-color: #fff;
 }
-.blog-news-name,.blog-news-decription,.blog-news-image, .blog-news-data,.blog-news-keywords {
+.blog-news-name,.blog-news-decription,.blog-news-image,
+.blog-news-data,.blog-news-keywords, .blog-meta-title {
     border-right: 1px solid black;
     height: 100px;
     overflow: hidden;
@@ -80,3 +81,10 @@ button.btn.btn-primary.delete_button {
     top: 50px;
     cursor: pointer;
 }
+
+.blog-news .col-md-1, .col-md-2, .col-md-3{
+    padding-right: 0px;
+    padding-left: 5px;
+
+}
+

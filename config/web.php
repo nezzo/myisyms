@@ -59,7 +59,7 @@ $config = [
             'sociat'=>'site/sociat',
              'error'=>'site/error',
              'search'=>'site/search',
-             'pages/<pages:\w+>'=>'site/pages',
+              'pages/<pages:\w+>'=>'site/pages',
              'enter'=>'admin/login',
              'admin'=>'admin/index',
              'logout'=>'admin/logout',
@@ -67,7 +67,11 @@ $config = [
              'create-post'=>'admin/create_post',
              'edit-post/<post:\w+>'=>'admin/edit_post',
              'del-post/<post:\w+>'=>'admin/del_post',
-        ],
+             'robots.txt'=>'seo/robot',
+             'googleba0ffbc68b0d9d6e.html'=>'seo/google',
+
+
+         ],
             /*Добавляем расширение к ссылке*/
             //'suffix'=>'.html'
          ],

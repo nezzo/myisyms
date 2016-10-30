@@ -33,6 +33,7 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
             ]); ?>
             <?= $form->field($model, 'name')->textInput(['autofocus' => true,'style'=>'width:600px;'])->label("Имя поста") ?>
             <?= $form->field($model, 'meta')->textInput(['style'=>'width:600px;'])->label("Мета-title") ?>
+            <?= $form->field($model, 'metadescription')->textInput(['style'=>'width:600px;'])->label("Мета-description") ?>
             <?= $form->field($model, 'description')->textArea(['style'=>'width:600px; height:300px;'])->label("Описание") ?>
             <?= $form->field($model, 'keywords')->textInput(['style'=>'width:600px;'])->label("Ключевые слова") ?>
 

@@ -14,6 +14,7 @@ class EditPost extends Model
 {
     public $name;
     public $meta;
+    public $metadescription;
     public $description;
     public $keywords;
 
@@ -22,7 +23,7 @@ class EditPost extends Model
     {
         return [
             // username and password are both required
-            [['name', 'meta'], 'required'],
+            [['name', 'meta','metadescription'], 'required'],
 
         ];
     }
@@ -30,13 +31,14 @@ class EditPost extends Model
 
     /*Получаем данные с полей и заносим в базу*/
     public function post_save ($post,$id){
-        $today = date("H:i:s d-m-Y");
+        $today = date("d-m-Y");
 
         /*Обновляем запись в базе данных*/
         $save = Yii::$app->db->createCommand()
             ->update('news_blogpost', [
                 'name' => $post['name'],
                 'meta-title' => $post['meta'],
+                'meta-description' => $post['metadescription'],
                 'description' => $post['description'],
                 'keywords' => $post['keywords'],
                 'data' => $today,
@@ -49,7 +51,7 @@ class EditPost extends Model
     /*Выводим выбранную новость*/
     public function get_post($id){
         $rows = (new \yii\db\Query())
-            ->select(['id','name','meta-title','description','keywords','data'])
+            ->select(['id','name','meta-title','meta-description','description','keywords','data'])
             ->from('news_blogpost')
             ->where(['id' => (int)$id])
             ->all();

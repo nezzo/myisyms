@@ -20,9 +20,19 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/style.css',
+        'assets/fancybox/source/jquery.fancybox.css?v=2.1.5',
+        'assets/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5',
+        'assets/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7',
+
     ];
     public $js = [
         'assets/js/site.js',
+        'assets/fancybox/lib/jquery.mousewheel-3.0.6.pack.js',
+        'assets/fancybox/source/jquery.fancybox.pack.js?v=2.1.5',
+        'assets/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6',
+        'assets/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7',
+
+
     ];
     public $depends = [
         'yii\web\YiiAsset',

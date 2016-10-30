@@ -20,13 +20,24 @@ class Pages_News extends Model {
     
     function pages_get($id){
         $rows = (new \yii\db\Query())
-        ->select(['id','name','meta-title','description','keywords','data'])
+        ->select(['id','name','meta-title','meta-description','description','keywords','data'])
         ->from('news_blogpost')
         ->where(['id' => (int)$id])
         ->all();
-        
+
         return $rows;
-        
-        
+
+     }
+
+    public function news_widget(){
+        $rows = (new \yii\db\Query())
+            ->select(['id','name'])
+            ->from('news_blogpost')
+            ->limit(5)
+            ->orderBy([
+                'data' => SORT_DESC
+            ])
+            ->all();
+        return $rows;
     }
 }

@@ -14,6 +14,7 @@ class CreatePost extends Model
 {
     public $name;
     public $meta;
+    public $metadescription;
     public $description;
     public $keywords;
 
@@ -24,7 +25,7 @@ class CreatePost extends Model
     {
         return [
             // username and password are both required
-            [['name', 'meta'], 'required'],
+            [['name', 'meta','metadescription'], 'required'],
 
         ];
     }
@@ -32,12 +33,13 @@ class CreatePost extends Model
 
     /*Получаем данные с полей и заносим в базу*/
     public function post_save ($post){
-        $today = date("H:i:s d-m-Y");
+        $today = date("d-m-Y");
 
        $save = Yii::$app->db->createCommand()
             ->insert('news_blogpost', [
                 'name' => $post['name'],
                 'meta-title' => $post['meta'],
+                'meta-description' => $post['metadescription'],
                 'description' => $post['description'],
                 'keywords' => $post['keywords'],
                 'data' => $today

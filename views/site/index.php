@@ -1,7 +1,17 @@
 <?php
 /* @var $this yii\web\View */
 use yii\widgets\LinkPager;
-
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => "opencart cms,сайт интернет магазина,opencart модули,создание интернет магазина на opencart,сайт для интернет магазина,
+                  модули для opencart,создание сайта на opencart,модули для сайта,социальные сайты,как сделать сайт на opencart,
+                  opencart search module,opencart файлы для скачивания,все для opencart,мобильная версия opencart,описание интернет магазина,
+                  создание сайта opencart"
+]);
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => "Веб-портал ISYMS. Создание модулей,сайтов, поддержка сайтов, создание веб-сервисов."
+]);
 $this->title = 'Официальный сайт ISYMS';
 ?>
 <div class="site-index">

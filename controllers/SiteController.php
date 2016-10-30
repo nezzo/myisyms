@@ -139,21 +139,27 @@ class SiteController extends Controller
         $news = new Pages_News();
         $id = Yii::$app->request->get('pages');
         $mas_news = $news->pages_get($id);
-        
+        $news_widget = $news->news_widget();
+
+        /*Формируем страницу с новостью*/
         if (!empty($mas_news)){
          foreach ($mas_news as $news){
             $title = $news['meta-title'];
             $keywords = $news['keywords'];
+            $meta_description = $news['meta-description'];
             $name = $news['name'];
             $description = $news['description'];
             $data = $news['data'];
         }
+
         return $this->render('pages',[
             'title' => $title,
             'keywords'=> $keywords,
+            'meta_description'=> $meta_description,
             'name'=> $name,
             'description'=>$description,
-            'data'=>$data
+            'data'=>$data,
+            'news_widget'=>$news_widget
         ]);   
             
         }else{
@@ -167,5 +173,5 @@ class SiteController extends Controller
 
         return $this->render('search');
     }
-    
+
 }

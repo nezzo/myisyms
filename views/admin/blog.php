@@ -31,7 +31,7 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
                         <?=$news_blog['name']?>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="blog-news-decription">
                         <?=$news_blog['description']?>
                     </div>
@@ -44,11 +44,16 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
                 </div>
 
                  <div class="col-md-1">
-                    <div class="blog-news-image">
+                    <div class="blog-meta-title">
                         <?=$news_blog['meta-title']?>
                     </div>
                  </div>
-                 <div class="col-md-2">
+                <div class="col-md-2">
+                    <div class="blog-meta-title">
+                        <?=$news_blog['meta-description']?>
+                    </div>
+                </div>
+                 <div class="col-md-1">
                     <div class="blog-news-data">
                         <?=$news_blog['data']?>
                     </div>
