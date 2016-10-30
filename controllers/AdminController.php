@@ -51,7 +51,7 @@ class AdminController extends Controller {
     public function actionIndex(){
 
         /*Подключение менюшки к админке layouts/admin/main.php*/
-        $this->layout = '/admin/main';
+        $this->layout = '/admin/index';
 
         return $this->render('index');
 
@@ -130,8 +130,6 @@ class AdminController extends Controller {
 
     /*Метод по удалению постов*/
     public function actionDel_post(){
-        $this->layout = '/admin/main';
-
         $del = new DeletePost();
 
         $id = Yii::$app->request->get('post');
@@ -140,6 +138,11 @@ class AdminController extends Controller {
         return $this->render('del_post',[
             'del' => $del,
         ]);
+    }
+
+    public function actionKeys(){
+        $this->layout = '/admin/main';
+        return $this->render('keys');
     }
 
 

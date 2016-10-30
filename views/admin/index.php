@@ -13,3 +13,43 @@ $session = Yii::$app->session;
      die();
  }
 ?>
+<div class="row">
+    <div class="menu_index">
+        <div class="col-md-2">
+            <div class="menu">
+                <p>Меню</p>
+                <ul>
+                    <li>
+                        <a href="/blog">
+                            <span>Блог</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/keys">
+                            <span>Ключь модуля</span>
+                        </a>
+                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="count_ip">
+                     <? #@TODO  тут выводим (возможно график) сколько было поситителей за сутки?>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="mail_index">
+                    <? #@TODO тут надо написать приложение по чтению писем?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

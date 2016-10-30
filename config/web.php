@@ -64,6 +64,7 @@ $config = [
              'admin'=>'admin/index',
              'logout'=>'admin/logout',
               'blog'=>'admin/blog',
+             'keys'=>'admin/keys',
              'create-post'=>'admin/create_post',
              'edit-post/<post:\w+>'=>'admin/edit_post',
              'del-post/<post:\w+>'=>'admin/del_post',

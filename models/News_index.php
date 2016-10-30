@@ -22,12 +22,12 @@ class News_index extends Model{
     /*Выводим на главную с базы последние добавленные записи*/
     function rows_news($offset, $limit){
         $rows = (new \yii\db\Query())
-        ->select(['id','name','description', 'data'])
+        ->select(['id','name','description', 'data', 'time'])
         ->from('news_blogpost')
         ->offset($offset)
         ->limit($limit)
         ->orderBy([
-                'data' => SORT_DESC
+                'time' => SORT_DESC
             ])
         ->all();
         
@@ -37,7 +37,7 @@ class News_index extends Model{
     /*Подсчитываем количество строк в таблице*/
     public function total(){
         $rows = (new \yii\db\Query())
-            ->select(['id','name','description','keywords','data'])
+            ->select(['id'])
             ->from('news_blogpost')
             ->all();
         return count($rows);

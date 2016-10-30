@@ -50,7 +50,7 @@ AppAsset::register($this);
              'items' =>[
 
                  ['label' => 'Twitter', 'img'=>'','url' => 'https://twitter.com/Artur_ISYMS'],
-                 ['label' => 'Telegram channel', 'url' => 'http://telegram.me/ISYMS'],
+                // ['label' => 'Telegram channel', 'url' => 'http://telegram.me/ISYMS'],
                  ['label' => 'Linkedin', 'url' => 'https://ua.linkedin.com/in/артур-легуша-8623b589'],
              ],
              ],

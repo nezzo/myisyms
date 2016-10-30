@@ -20,7 +20,7 @@ class Pages_News extends Model {
     
     function pages_get($id){
         $rows = (new \yii\db\Query())
-        ->select(['id','name','meta-title','meta-description','description','keywords','data'])
+        ->select(['id','name','meta-title','meta-description','description','keywords','data','time'])
         ->from('news_blogpost')
         ->where(['id' => (int)$id])
         ->all();
@@ -35,7 +35,7 @@ class Pages_News extends Model {
             ->from('news_blogpost')
             ->limit(5)
             ->orderBy([
-                'data' => SORT_DESC
+                'time' => SORT_DESC
             ])
             ->all();
         return $rows;

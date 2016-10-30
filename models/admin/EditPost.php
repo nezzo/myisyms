@@ -42,6 +42,7 @@ class EditPost extends Model
                 'description' => $post['description'],
                 'keywords' => $post['keywords'],
                 'data' => $today,
+                'time' => time()
             ], 'id=:id', array(':id'=> (int)$id))
             ->execute();
 
@@ -51,7 +52,7 @@ class EditPost extends Model
     /*Выводим выбранную новость*/
     public function get_post($id){
         $rows = (new \yii\db\Query())
-            ->select(['id','name','meta-title','meta-description','description','keywords','data'])
+            ->select(['id','name','meta-title','meta-description','description','keywords'])
             ->from('news_blogpost')
             ->where(['id' => (int)$id])
             ->all();

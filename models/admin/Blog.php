@@ -17,12 +17,12 @@ class Blog extends Model
     /*Выводим все новости что есть */
     public function get_all_post($offset, $limit){
         $rows = (new \yii\db\Query())
-            ->select(['id','name','meta-title','meta-description','description','keywords','data'])
+            ->select(['id','name','meta-title','meta-description','description','keywords','data','time'])
             ->from('news_blogpost')
             ->offset($offset)
             ->limit($limit)
             ->orderBy([
-                'data' => SORT_DESC
+                'time' => SORT_DESC
             ])
             ->all();
 
@@ -33,7 +33,7 @@ class Blog extends Model
     /*Подсчитываем количество строк в таблице*/
     public function total(){
         $rows = (new \yii\db\Query())
-            ->select(['id','name','meta-title','meta-description','description','keywords','data'])
+            ->select(['id'])
             ->from('news_blogpost')
             ->all();
         return count($rows);

@@ -35,14 +35,15 @@ class CreatePost extends Model
     public function post_save ($post){
         $today = date("d-m-Y");
 
-       $save = Yii::$app->db->createCommand()
+         $save = Yii::$app->db->createCommand()
             ->insert('news_blogpost', [
                 'name' => $post['name'],
                 'meta-title' => $post['meta'],
                 'meta-description' => $post['metadescription'],
                 'description' => $post['description'],
                 'keywords' => $post['keywords'],
-                'data' => $today
+                'data' => $today,
+                'time' => time()
             ])->execute();
 
         return $save;

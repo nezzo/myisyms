@@ -13,5 +13,5 @@ Disallow: /tests/
 Disallow: /vendor/
 Disallow: /views/
 Host: www.isyms.ru
-Sitemap: http://product.isyms.ru/sitemap.xml
+Sitemap: http://sitemap.isyms.ru/sitemap.xml
 

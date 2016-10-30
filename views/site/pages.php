@@ -23,8 +23,7 @@ $this->title = "$title ISYMS";
        <div class="tab-active">
             <?=$description?>
         </div>
-        
-    </div>
+     </div>
 </div>
 </div>
 <div class="col-md-3">
