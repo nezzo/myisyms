@@ -13,6 +13,7 @@ use yii\web\Session;
 use yii\data\Pagination;
 use app\models\admin\CreatePost;
 use app\models\admin\EditPost;
+use app\models\admin\Count;
 
 
 
@@ -52,6 +53,9 @@ class AdminController extends Controller {
 
         /*Подключение менюшки к админке layouts/admin/main.php*/
         $this->layout = '/admin/index';
+
+        /*Получаем ip адресс пользователя*/
+        $ip = new Count();
 
         return $this->render('index');
 
@@ -144,6 +148,7 @@ class AdminController extends Controller {
         $this->layout = '/admin/main';
         return $this->render('keys');
     }
+
 
 
 }
