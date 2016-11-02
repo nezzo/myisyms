@@ -39,10 +39,29 @@ $session = Yii::$app->session;
         </div>
         <div class="col-md-10">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-5">
                     <div class="count_ip">
-                     <? #@TODO  тут выводим (возможно график) сколько было поситителей за сутки?>
+                     <?php foreach($select_count as $count) { ?>
+                      <div class="col-md-12">
+                          <div class="date">
+                              <p>Дата:</p>
+                              <span><?=$count['date']?></span>
+                          </div>
+                      </div>
+                        <div class="col-md-12">
+                            <div class="hit">
+                            <p>Хосты:</p>
+                            <span><?=$count['hosts']?></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="host">
+                              <p>Просмотры:</p>
+                              <span><?=$count['views']?></span>
+                            </div>
+                        </div>
                     </div>
+                    <?php } ?>
                 </div>
                 <div class="col-md-2">
                     <div class="mail_index">

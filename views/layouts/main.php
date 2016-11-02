@@ -8,6 +8,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\models\admin\Count;
 
 AppAsset::register($this);
 ?>
@@ -30,6 +31,36 @@ AppAsset::register($this);
     </script>
 </head>
 <body>
+<?php
+//Запускаем функцию по учету пользователей
+/*Вчерашняя дата по удалению записей из базы за вчера*/
+$date = date("d.m.Y", mktime(0, 0, 0, date("m"), date("d")-1, date("Y")));
+
+/*Получаем ip  адресс пользователя*/
+$ip = Yii::$app->getRequest()->getUserIP();
+
+/*Подключаем модель куда будет заноситься информация о пользователях*/
+$count = new Count();
+
+if ($count->old_connects() == 0){
+    $count->dell_ips($date);
+    $count->user_ip($ip);
+    $count->update_visits();
+
+}else{
+
+    //Если такой IP-адрес уже сегодня был (т.е. это не уникальный посетитель)
+    if($count->get_ip_adress($ip) == $ip){
+        $count->update_hit();
+    }else{
+
+        // Если сегодня такого IP-адреса еще не было (т.е. это уникальный посетитель)
+        $count->user_ip($ip);
+        $count->update_host_hit();
+    }
+}
+
+?>
 <?php $this->beginBody() ?>
 
 <div class="wrap">

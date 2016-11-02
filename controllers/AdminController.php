@@ -37,8 +37,6 @@ class AdminController extends Controller {
                 $session->open();
                 $session['admin_ip'] = $_SERVER["REMOTE_ADDR"];
                 return $this->redirect(['index']);
-
-
             }
         }
 
@@ -54,10 +52,11 @@ class AdminController extends Controller {
         /*Подключение менюшки к админке layouts/admin/main.php*/
         $this->layout = '/admin/index';
 
-        /*Получаем ip адресс пользователя*/
+        /*Подключаем счетчик по пользователям*/
         $ip = new Count();
-
-        return $this->render('index');
+        return $this->render('index',[
+            'select_count'=>$ip->select_data(),
+        ]);
 
     }
 

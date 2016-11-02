@@ -117,5 +117,28 @@ button.btn.btn-primary.delete_button {
 .menu ul li a {
     text-decoration: none;
 }
-
+.count_ip {
+    border: 1px solid black;
+    height: 90px;
+    background-color: #fff;
+    position: relative;
+    left: 20px;
+    width: 65%;
+}
+.date p, .hit p{
+    width: 25%;
+    float: left;
+}
+.host p {
+    width: 45%;
+    float: left;
+}
+.host span {
+    width: 55%;
+    float: right;
+}
+.date span,.hit span{
+    width: 75%;
+    float: right;
+}
 

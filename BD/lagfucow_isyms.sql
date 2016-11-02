@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost:3306
--- Время создания: Ноя 01 2016 г., 01:54
+-- Время создания: Ноя 02 2016 г., 02:57
 -- Версия сервера: 5.6.33-cll-lve
 -- Версия PHP: 5.6.20
 
@@ -71,14 +71,15 @@ CREATE TABLE IF NOT EXISTS `ips_user` (
   `ip_address` varchar(50) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=75 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=108 ;
 
 --
 -- Дамп данных таблицы `ips_user`
 --
 
 INSERT INTO `ips_user` (`id`, `ip_address`, `date`) VALUES
-(74, '178.92.8.240', '01-11-2016');
+(107, '213.179.252.9', '02-11-2016'),
+(106, '46.133.195.159', '02-11-2016');
 
 -- --------------------------------------------------------
 
@@ -133,14 +134,14 @@ CREATE TABLE IF NOT EXISTS `visits` (
   `hosts` int(255) NOT NULL,
   `views` int(255) NOT NULL,
   PRIMARY KEY (`visit_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
 -- Дамп данных таблицы `visits`
 --
 
 INSERT INTO `visits` (`visit_id`, `date`, `hosts`, `views`) VALUES
-(4, '01-11-2016', 1, 1);
+(18, '02-11-2016', 2, 38);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

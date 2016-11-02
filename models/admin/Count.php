@@ -79,13 +79,10 @@ class Count
     // Добавляем для текущей даты +1 просмотр (хит)
     public function update_hit(){
         $date = date("d-m-Y");
-        $save = Yii::$app->db->createCommand()
-            ->update('visits', [
-                'views' => 'views' +1,
-            ], 'date=:date', array(':date'=> $date))
-            ->execute();
-#@TODO надо разобраться в запросе можно добавить что  бы плюсовало 1 каждый раз при заходе
 
+
+        $save = Yii::$app->db->createCommand("update {{visits}} set views=views+1")
+            ->execute('date=:date', array(':date'=> $date));
         return $save;
 
     }
@@ -93,15 +90,22 @@ class Count
     // Добавляем в базу +1 уникального посетителя (хост) и +1 просмотр (хит)
     public function update_host_hit(){
         $date = date("d-m-Y");
-        $save = Yii::$app->db->createCommand()
-            ->update('visits', [
-                'views' => 'views +1',
-                'hosts'=>'hosts +1',
-            ], 'date=:date', array(':date'=>  $date))
-            ->execute();
+        $save = Yii::$app->db->createCommand("update {{visits}} set views=views+1, hosts=hosts+1")
+           ->execute('date=:date', array(':date'=>  $date));
 
         return $save;
 
+    }
+
+    public function select_data(){
+        $date = date("d-m-Y");
+        $rows = (new \yii\db\Query())
+            ->select(['date','hosts','views'])
+            ->from('visits')
+            ->where(['date'=>$date])
+            ->all();
+
+        return $rows;
     }
 
 
