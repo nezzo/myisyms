@@ -22,7 +22,7 @@ class News_index extends Model{
     /*Выводим на главную с базы последние добавленные записи*/
     function rows_news($offset, $limit){
         $rows = (new \yii\db\Query())
-        ->select(['id','name','description', 'data', 'time'])
+        ->select(['id','name','image','meta-description', 'data', 'time'])
         ->from('news_blogpost')
         ->offset($offset)
         ->limit($limit)

@@ -15,6 +15,7 @@ class CreatePost extends Model
     public $name;
     public $meta;
     public $metadescription;
+    public $image;
     public $description;
     public $keywords;
 
@@ -39,12 +40,24 @@ class CreatePost extends Model
             ->insert('news_blogpost', [
                 'name' => $post['name'],
                 'meta-title' => $post['meta'],
+                'image' => $post['image'],
                 'meta-description' => $post['metadescription'],
                 'description' => $post['description'],
                 'keywords' => $post['keywords'],
                 'data' => $today,
                 'time' => time()
             ])->execute();
+
+        return $save;
+    }
+
+    /*Создаем категории для статьи*/
+    public function category_save($category){
+
+        $save = Yii::$app->db->createCommand()
+            ->insert('category', [
+                'name_category' => $category['name'],
+             ])->execute();
 
         return $save;
     }

@@ -21,4 +21,13 @@ class DeletePost extends Model
     }
 
 
+    /*Получаем id  и удаляем из базы категорию*/
+    public function del_category($id){
+        $del = Yii::$app->db->createCommand()->delete('category', 'id=:id', array(':id'=> (int) $id))->execute();
+
+        return $del;
+    }
+
+
+
 }

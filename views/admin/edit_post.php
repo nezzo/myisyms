@@ -32,6 +32,7 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
             ]); ?>
             <?= $form->field($model, 'name')->textInput(['autofocus' => true,'style'=>'width:600px;','value' => $massiv["name"]])->label("Имя поста") ?>
             <?= $form->field($model, 'meta')->textInput(['style'=>'width:600px;','value' => $massiv["meta-title"]])->label("Мета-title") ?>
+            <?= $form->field($model, 'image')->textInput(['style'=>'width:600px;','value' => $massiv["image"]])->label("Баннер поста") ?>
             <?= $form->field($model, 'metadescription')->textInput(['style'=>'width:600px;','value' => $massiv["meta-description"]])->label("Мета-description") ?>
             <?= $form->field($model, 'description')->textArea(['style'=>'width:600px; height:300px;','value' => $massiv["description"]])->label("Описание") ?>
             <?= $form->field($model, 'keywords')->textInput(['style'=>'width:600px;','value' => $massiv["keywords"]])->label("Ключевые слова") ?>

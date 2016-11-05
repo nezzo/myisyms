@@ -32,11 +32,19 @@ $this->title = 'Официальный сайт ISYMS';
                                 <a href="/pages/<?=$news['id']?>"><?=$news['name']?></a>
                             </div>
                             <div class="news_decription">
-                            <?=$news['description']?>
+                                <?php if(!empty($news['image'])) { ?>
+                                    <div class="news_image">
+                                        <img  src="/web/image/posts/banner_posts/<?=$news['id']?>/<?=$news['image']?>" />
+                                    </div>
+                                 <?php } ?>
+
+                            <?=$news['meta-description']?>
                             </div>
+
                             <div class="data">
                             <?=$news['data']?>
                             </div>
+
                          </div>
                      </div>
 

@@ -14,6 +14,7 @@ use yii\data\Pagination;
 use app\models\admin\CreatePost;
 use app\models\admin\EditPost;
 use app\models\admin\Count;
+use app\models\admin\Category;
 
 
 
@@ -148,6 +149,68 @@ class AdminController extends Controller {
         return $this->render('keys');
     }
 
+    public function actionCategory(){
 
+        $this->layout = '/admin/main';
+        $category = new Category();
+
+        /*Подключаем пагинацию  и выводим на страницу:
+         'pageSize' => 5] - количество записей на странице
+        'totalCount' => count($news->get_all_post()) - количество страниц == количеству записей
+         */
+        $pagination = new Pagination(['totalCount' => $category->total(), 'pageSize' => 5]);
+
+        /*Выводим пагинацию на страницу*/
+        return $this->render('category',[
+            'category_blog' => $category->get_all_category($pagination->offset,$pagination->limit),
+            'pages' => $pagination,
+        ]);
+    }
+
+    /*Создание категории*/
+    public function actionCreate_category(){
+        /*Подключение менюшки к админке layouts/admin/main.php*/
+        $this->layout = '/admin/main';
+
+        $create = new CreatePost();
+
+        /*Получаем данные методом пост и проверяем не пустые ли. Передаем в модель */
+        if(!empty(Yii::$app->request->post('CreatePost'))){
+            $category = Yii::$app->request->post('CreatePost');
+            $create->category_save($category);
+            header('Location: http://'.$_SERVER['HTTP_HOST'].'/'.'blog');
+        }
+
+        return $this->render('create_category',[
+            'model'=> $create,
+        ]);
+
+    }
+
+    /*Редактируем выбранные посты*/
+    public function actionEdit_category(){
+
+        $this->layout = '/admin/main';
+
+        $edit = new EditPost();
+
+        /*Получаем ид поста для редактирования*/
+        $id = Yii::$app->request->get('category');
+        $mas_news = $edit->get_category($id);
+
+
+        /*Заносим измененные данные в базу*/
+        if(!empty(Yii::$app->request->post('EditCategory'))){
+            $category = Yii::$app->request->post('EditCategory');
+            $edit->category_save($category,$id);
+            $mas_news = $edit->get_category($id);
+            header('Location: http://'.$_SERVER['HTTP_HOST'].'/'.'blog');
+        }
+
+        return $this->render('edit_category',[
+            'model' => $edit,
+            'mas' => $mas_news,
+        ]);
+    }
 
 }

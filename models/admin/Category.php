@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: nestor
- * Date: 23.10.16
- * Time: 3:30
+ * Date: 05.11.16
+ * Time: 1:05
  */
 
 namespace app\models\admin;
@@ -11,18 +11,17 @@ namespace app\models\admin;
 use Yii;
 use yii\base\Model;
 
-class Blog extends Model
+class Category extends Model
 {
-
-    /*Выводим все новости что есть */
-    public function get_all_post($offset, $limit){
+    /*Выводим все категории что есть */
+    public function get_all_category($offset, $limit){
         $rows = (new \yii\db\Query())
-            ->select(['id','name','meta-title','image','meta-description','description','keywords','data','time'])
-            ->from('news_blogpost')
+            ->select(['id','name_category'])
+            ->from('category')
             ->offset($offset)
             ->limit($limit)
             ->orderBy([
-                'time' => SORT_DESC
+                'id' => SORT_DESC
             ])
             ->all();
 
@@ -34,7 +33,7 @@ class Blog extends Model
     public function total(){
         $rows = (new \yii\db\Query())
             ->select(['id'])
-            ->from('news_blogpost')
+            ->from('category')
             ->all();
         return count($rows);
     }

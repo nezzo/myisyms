@@ -38,5 +38,4 @@ if ($session['admin_ip'] == $_SERVER["REMOTE_ADDR"]){
         </div>
     </div>
     <?php ActiveForm::end(); ?>
-
    </div>

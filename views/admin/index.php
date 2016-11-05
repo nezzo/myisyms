@@ -20,12 +20,12 @@ $session = Yii::$app->session;
                 <p>Меню</p>
                 <ul>
                     <li>
-                        <a href="/blog">
+                        <a href="/blog" class="btn btn-sm">
                             <span>Блог</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/keys">
+                        <a href="/keys" class="btn btn-sm">
                             <span>Ключь модуля</span>
                         </a>
                     </li>

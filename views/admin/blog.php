@@ -18,8 +18,11 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
     die();
 }
 ?>
-<div class="col-md-12">
+<div class="col-md-2">
     <a href="/create-post" class="btn btn-primary btn-sm create_post">Создать пост</a>
+</div>
+<div class="col-md-2">
+    <a href="/category" class="btn btn-primary btn-sm create_post">Категории</a>
 </div>
 <div class="block_news">
     <?php foreach ($news as $news_blog) { ?>
@@ -37,7 +40,7 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
                     </div>
                  </div>
 
-                <div class="col-md-2">
+                <div class="col-md-1">
                     <div class="blog-news-keywords">
                         <?=$news_blog['keywords']?>
                     </div>
@@ -48,6 +51,11 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
                         <?=$news_blog['meta-title']?>
                     </div>
                  </div>
+                <div class="col-md-1">
+                    <div class="blog-meta-image">
+                        <?=$news_blog['image']?>
+                    </div>
+                </div>
                 <div class="col-md-2">
                     <div class="blog-meta-title">
                         <?=$news_blog['meta-description']?>

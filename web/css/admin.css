@@ -37,7 +37,7 @@ header {
     background-color: #fff;
 }
 .blog-news-name,.blog-news-decription,.blog-news-image,
-.blog-news-data,.blog-news-keywords, .blog-meta-title {
+.blog-news-data,.blog-news-keywords, .blog-meta-title,.blog-meta-image {
     border-right: 1px solid black;
     height: 100px;
     overflow: hidden;
@@ -124,6 +124,7 @@ button.btn.btn-primary.delete_button {
     position: relative;
     left: 20px;
     width: 65%;
+    border-radius: 10px 10px 10px 10px;
 }
 .date p, .hit p{
     width: 25%;
@@ -140,5 +141,16 @@ button.btn.btn-primary.delete_button {
 .date span,.hit span{
     width: 75%;
     float: right;
+}
+.news_image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+.menu a.btn.btn-sm {
+    width: 100%;
+}
+.menu a.btn.btn-sm:hover {
+    background-color: #00ff00;
 }
 

@@ -70,6 +70,10 @@ $config = [
              'del-post/<post:\w+>'=>'admin/del_post',
              'robots.txt'=>'seo/robot',
              'googleba0ffbc68b0d9d6e.html'=>'seo/google',
+             'category'=>'admin/category',
+             'create-category'=>'admin/create_category',
+             'edit-category/<category:\w+>'=>'admin/edit_category',
+             'del-category/<post:\w+>'=>'admin/del_category',
 
 
          ],

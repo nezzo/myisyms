@@ -38,6 +38,7 @@ class EditPost extends Model
             ->update('news_blogpost', [
                 'name' => $post['name'],
                 'meta-title' => $post['meta'],
+                'image' => $post['image'],
                 'meta-description' => $post['metadescription'],
                 'description' => $post['description'],
                 'keywords' => $post['keywords'],
@@ -52,7 +53,7 @@ class EditPost extends Model
     /*Выводим выбранную новость*/
     public function get_post($id){
         $rows = (new \yii\db\Query())
-            ->select(['id','name','meta-title','meta-description','description','keywords'])
+            ->select(['id','name','meta-title','image','meta-description','description','keywords'])
             ->from('news_blogpost')
             ->where(['id' => (int)$id])
             ->all();
@@ -60,6 +61,31 @@ class EditPost extends Model
         return $rows;
 
     }
+
+    /*Получаем данные с полей и заносим в базу категории*/
+    public function category_save ($category,$id){
+        /*Обновляем запись в базе данных*/
+        $save = Yii::$app->db->createCommand()
+            ->update('category', [
+                'name_category' => $category['name']
+            ], 'id=:id', array(':id'=> (int)$id))
+            ->execute();
+
+        return $save;
+    }
+
+    /*Выводим выбранную категорию*/
+    public function get_category($id){
+        $rows = (new \yii\db\Query())
+            ->select(['id','name_category'])
+            ->from('category')
+            ->where(['id' => (int)$id])
+            ->all();
+
+        return $rows;
+
+    }
+
 
 
 }
