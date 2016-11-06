@@ -19,8 +19,10 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
 }
 ?>
 <div class="block_news">
+    <div class="col-md-2">
+        <a href="/create-category" class="btn btn-primary btn-sm create_post">Создать категорию</a>
+    </div>
     <?php foreach ($category_blog as $category) { ?>
-
         <div class="col-md-12">
             <div class=" blog-news ">
                <div class="col-md-11">

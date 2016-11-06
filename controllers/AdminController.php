@@ -92,6 +92,7 @@ class AdminController extends Controller {
         $this->layout = '/admin/main';
 
          $create = new CreatePost();
+        $category = new Category();
 
         /*Получаем данные методом пост и проверяем не пустые ли. Передаем в модель */
             if(!empty(Yii::$app->request->post('CreatePost'))){
@@ -102,6 +103,8 @@ class AdminController extends Controller {
 
             return $this->render('create_post',[
                 'model'=> $create,
+                'category_post'=>$category->all_category(),
+
             ]);
 
     }
@@ -178,7 +181,7 @@ class AdminController extends Controller {
         if(!empty(Yii::$app->request->post('CreatePost'))){
             $category = Yii::$app->request->post('CreatePost');
             $create->category_save($category);
-            header('Location: http://'.$_SERVER['HTTP_HOST'].'/'.'blog');
+            header('Location: http://'.$_SERVER['HTTP_HOST'].'/'.'category');
         }
 
         return $this->render('create_category',[
@@ -200,16 +203,28 @@ class AdminController extends Controller {
 
 
         /*Заносим измененные данные в базу*/
-        if(!empty(Yii::$app->request->post('EditCategory'))){
-            $category = Yii::$app->request->post('EditCategory');
+        if(!empty(Yii::$app->request->post('EditPost'))){
+            $category = Yii::$app->request->post('EditPost');
             $edit->category_save($category,$id);
             $mas_news = $edit->get_category($id);
-            header('Location: http://'.$_SERVER['HTTP_HOST'].'/'.'blog');
+            header('Location: http://'.$_SERVER['HTTP_HOST'].'/'.'category');
         }
 
         return $this->render('edit_category',[
             'model' => $edit,
             'mas' => $mas_news,
+        ]);
+    }
+
+    /*Метод по удалению категорий*/
+    public function actionDel_category(){
+        $del = new DeletePost();
+
+        $id = Yii::$app->request->get('post');
+        $del->del_category($id);
+
+        return $this->render('del_post',[
+            'del' => $del,
         ]);
     }
 

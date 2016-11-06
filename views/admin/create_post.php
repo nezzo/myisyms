@@ -22,7 +22,6 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
     </div>
     <div class="row">
         <div class="post">
-
             <?php $form = ActiveForm::begin([
                 'id' => 'post-form',
                 'options' => ['class' => 'form-horizontal'],
@@ -30,7 +29,23 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
                     'template' => "{label}\n<div class=\"col-lg-4\">{input}</div>\n<div class=\"col-lg-6\">{error}</div>",
                     'labelOptions' => ['class' => 'col-lg-2 control-label'],
                 ],
-            ]); ?>
+            ]);
+             $params = [
+                'prompt' => 'Выберите категорию',
+            ];
+            $items = array();
+             ?>
+            <?php
+            #@TODO криво работает выпадающий список
+            foreach($category_post as $category){
+                $items=[
+                    $category['id'] =>$category['name_category'],
+                ];
+
+                } ?>
+
+            <?= $form->field($model, 'category')->dropDownList($items,$params)->label("Категория")?>
+
             <?= $form->field($model, 'name')->textInput(['autofocus' => true,'style'=>'width:600px;'])->label("Имя поста") ?>
             <?= $form->field($model, 'meta')->textInput(['style'=>'width:600px;'])->label("Мета-title") ?>
             <?= $form->field($model, 'image')->textInput(['style'=>'width:600px;'])->label("Баннер поста") ?>

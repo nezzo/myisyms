@@ -13,13 +13,27 @@ use yii\base\Model;
 
 class Category extends Model
 {
-    /*Выводим все категории что есть */
+    /*Выводим все категории что есть (пагинация) */
     public function get_all_category($offset, $limit){
         $rows = (new \yii\db\Query())
             ->select(['id','name_category'])
             ->from('category')
             ->offset($offset)
             ->limit($limit)
+            ->orderBy([
+                'id' => SORT_DESC
+            ])
+            ->all();
+
+        return $rows;
+
+    }
+
+    /*Выводим все категории что есть */
+    public function all_category(){
+        $rows = (new \yii\db\Query())
+            ->select(['id','name_category'])
+            ->from('category')
             ->orderBy([
                 'id' => SORT_DESC
             ])

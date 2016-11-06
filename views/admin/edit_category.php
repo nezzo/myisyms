@@ -28,7 +28,7 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
                             'labelOptions' => ['class' => 'col-lg-2 control-label'],
                         ],
                     ]); ?>
-                    <?= $form->field($model, 'name')->textInput(['autofocus' => true,'style'=>'width:600px;','value' => $massiv["name"]])->label("Имя категории") ?>
+                    <?= $form->field($model, 'name')->textInput(['autofocus' => true,'style'=>'width:600px;','value' => $massiv["name_category"]])->label("Имя категории") ?>
 
                     <div class="form-group">
                         <div class="col-lg-offset-1 col-lg-11">

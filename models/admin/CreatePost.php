@@ -18,6 +18,7 @@ class CreatePost extends Model
     public $image;
     public $description;
     public $keywords;
+    public $category;
 
 
 
@@ -38,6 +39,7 @@ class CreatePost extends Model
 
          $save = Yii::$app->db->createCommand()
             ->insert('news_blogpost', [
+                'category'=> $post['category'],
                 'name' => $post['name'],
                 'meta-title' => $post['meta'],
                 'image' => $post['image'],
