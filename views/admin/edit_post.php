@@ -29,7 +29,20 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
                     'template' => "{label}\n<div class=\"col-lg-4\">{input}</div>\n<div class=\"col-lg-6\">{error}</div>",
                     'labelOptions' => ['class' => 'col-lg-2 control-label'],
                 ],
-            ]); ?>
+            ]);
+            $params = [
+                'prompt' => 'Выберите категорию',
+            ];
+            $items = array();
+            ?>
+            <?php
+
+            /*Выводим категорию в выпадающем списке*/
+            foreach($category_post as $category){
+                $items[$category['id']] = $category['name_category'];
+            }
+            ?>
+            <?= $form->field($model, 'category')->dropDownList($items,$params)->label("Категория")?>
             <?= $form->field($model, 'name')->textInput(['autofocus' => true,'style'=>'width:600px;','value' => $massiv["name"]])->label("Имя поста") ?>
             <?= $form->field($model, 'meta')->textInput(['style'=>'width:600px;','value' => $massiv["meta-title"]])->label("Мета-title") ?>
             <?= $form->field($model, 'image')->textInput(['style'=>'width:600px;','value' => $massiv["image"]])->label("Баннер поста") ?>

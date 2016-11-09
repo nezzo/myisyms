@@ -37,7 +37,7 @@ header {
     background-color: #fff;
 }
 .blog-news-name,.blog-news-decription,.blog-news-image,
-.blog-news-data,.blog-news-keywords, .blog-meta-title,.blog-meta-image {
+.blog-news-data,.blog-news-keywords, .blog-meta-title,.blog-meta-image, .blog-news-category {
     border-right: 1px solid black;
     height: 100px;
     overflow: hidden;

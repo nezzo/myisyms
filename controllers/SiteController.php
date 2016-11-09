@@ -12,6 +12,7 @@ use app\models\News_index;
 use app\models\Pages_News;
 use yii\data\Pagination;
 use app\models\admin\Count;
+use app\models\Module;
 
 class SiteController extends Controller
 {
@@ -75,6 +76,19 @@ class SiteController extends Controller
             'pages' => $pagination,
         ]);
        
+    }
+
+    /*Выводим новости в разделе модули*/
+    public function actionModule(){
+
+        $module = new Module();
+        $pagination = new Pagination(['totalCount' => $module->total(), 'pageSize' => 6]);
+
+        return $this->render('module',[
+            'pages' => $pagination,
+            'module_news' => $module->rows_modules($pagination->offset,$pagination->limit),
+
+        ]);
     }
 
     /**

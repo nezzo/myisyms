@@ -76,6 +76,11 @@ if ($count->old_connects() == 0){
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Главная', 'url' => Yii::$app->homeUrl],
+            ['label' => 'Разделы',
+                'items' =>[
+                   ['label' => 'Модули', 'url' => ['/site/module']]
+                ],
+            ],
             ['label' => 'Контакты', 'url' => ['/site/contact']],
             ['label' => 'Соц.сети',
              'items' =>[

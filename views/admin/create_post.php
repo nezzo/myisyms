@@ -36,16 +36,15 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
             $items = array();
              ?>
             <?php
-            #@TODO криво работает выпадающий список
-            foreach($category_post as $category){
-                $items=[
-                    $category['id'] =>$category['name_category'],
-                ];
 
-                } ?>
+            /*Выводим категорию в выпадающем списке*/
+            foreach($category_post as $category){
+                $items[$category['id']] = $category['name_category'];
+            }
+            ?>
+
 
             <?= $form->field($model, 'category')->dropDownList($items,$params)->label("Категория")?>
-
             <?= $form->field($model, 'name')->textInput(['autofocus' => true,'style'=>'width:600px;'])->label("Имя поста") ?>
             <?= $form->field($model, 'meta')->textInput(['style'=>'width:600px;'])->label("Мета-title") ?>
             <?= $form->field($model, 'image')->textInput(['style'=>'width:600px;'])->label("Баннер поста") ?>

@@ -55,6 +55,7 @@ $config = [
         ),
          'rules' => [
             'index'=>'site/index',
+             'module'=>'site/module',
             'contact'=>'site/contact',
             'sociat'=>'site/sociat',
              'error'=>'site/error',

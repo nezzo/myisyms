@@ -72,6 +72,8 @@ class AdminController extends Controller {
         $this->layout = '/admin/main';
         $news = new Blog();
 
+        #@TODO нужно  сделать так что бы по id категории подтягивалась сама категория(имя) при вызове и редактировании тоже
+
         /*Подключаем пагинацию  и выводим на страницу:
           'pageSize' => 5] - количество записей на странице
          'totalCount' => count($news->get_all_post()) - количество страниц == количеству записей
@@ -115,6 +117,7 @@ class AdminController extends Controller {
         $this->layout = '/admin/main';
 
         $edit = new EditPost();
+        $category = new Category();
 
         /*Получаем ид поста для редактирования*/
         $id = Yii::$app->request->get('post');
@@ -132,6 +135,7 @@ class AdminController extends Controller {
         return $this->render('edit_post',[
             'model' => $edit,
             'mas' => $mas_news,
+            'category_post'=>$category->all_category(),
             ]);
     }
 

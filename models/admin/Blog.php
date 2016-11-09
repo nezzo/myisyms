@@ -17,7 +17,7 @@ class Blog extends Model
     /*Выводим все новости что есть */
     public function get_all_post($offset, $limit){
         $rows = (new \yii\db\Query())
-            ->select(['id','name','meta-title','image','meta-description','description','keywords','data','time'])
+            ->select(['id','name','category','meta-title','image','meta-description','description','keywords','data','time'])
             ->from('news_blogpost')
             ->offset($offset)
             ->limit($limit)

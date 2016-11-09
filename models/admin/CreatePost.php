@@ -27,7 +27,7 @@ class CreatePost extends Model
     {
         return [
             // username and password are both required
-            [['name', 'meta','metadescription'], 'required'],
+            [['name', 'meta','metadescription','category'], 'required'],
 
         ];
     }

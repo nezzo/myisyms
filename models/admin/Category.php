@@ -11,6 +11,7 @@ namespace app\models\admin;
 use Yii;
 use yii\base\Model;
 
+
 class Category extends Model
 {
     /*Выводим все категории что есть (пагинация) */

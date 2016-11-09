@@ -25,11 +25,12 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
     <a href="/category" class="btn btn-primary btn-sm create_post">Категории</a>
 </div>
 <div class="block_news">
+    <?=$test?>
     <?php foreach ($news as $news_blog) { ?>
 
         <div class="col-md-12">
             <div class=" blog-news box-news-<?=$news_blog['id']?>">
-                <div class="col-md-2">
+                <div class="col-md-1">
                     <div class="blog-news-name">
                         <?=$news_blog['name']?>
                     </div>
@@ -39,6 +40,11 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
                         <?=$news_blog['description']?>
                     </div>
                  </div>
+                <div class="col-md-1">
+                    <div class="blog-news-category">
+                        <?=$news_blog['category']?>
+                    </div>
+                </div>
 
                 <div class="col-md-1">
                     <div class="blog-news-keywords">

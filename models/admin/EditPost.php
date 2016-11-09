@@ -17,13 +17,14 @@ class EditPost extends Model
     public $metadescription;
     public $description;
     public $keywords;
+    public $category;
 
 
     public function rules()
     {
         return [
             // username and password are both required
-            [['name', 'meta','metadescription'], 'required'],
+            [['name', 'meta','metadescription','category'], 'required'],
 
         ];
     }
@@ -37,6 +38,7 @@ class EditPost extends Model
         $save = Yii::$app->db->createCommand()
             ->update('news_blogpost', [
                 'name' => $post['name'],
+                'category' => $post['category'],
                 'meta-title' => $post['meta'],
                 'image' => $post['image'],
                 'meta-description' => $post['metadescription'],
@@ -53,7 +55,7 @@ class EditPost extends Model
     /*Выводим выбранную новость*/
     public function get_post($id){
         $rows = (new \yii\db\Query())
-            ->select(['id','name','meta-title','image','meta-description','description','keywords'])
+            ->select(['id','category','name','meta-title','image','meta-description','description','keywords'])
             ->from('news_blogpost')
             ->where(['id' => (int)$id])
             ->all();
