@@ -160,3 +160,11 @@ a.desc:after {
         width: 100%;
     }
 }
+@media screen and (min-width : 300px) and (max-width : 325px){
+    .navbar-toggle {
+        padding: 9px 5px;
+    }
+    .navbar-brand {
+        padding: 15px 5px;
+    }
+}

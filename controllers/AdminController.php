@@ -224,10 +224,10 @@ class AdminController extends Controller {
     public function actionDel_category(){
         $del = new DeletePost();
 
-        $id = Yii::$app->request->get('post');
+        $id = Yii::$app->request->get('category');
         $del->del_category($id);
 
-        return $this->render('del_post',[
+        return $this->render('del_category',[
             'del' => $del,
         ]);
     }

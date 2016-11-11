@@ -74,7 +74,7 @@ $config = [
              'category'=>'admin/category',
              'create-category'=>'admin/create_category',
              'edit-category/<category:\w+>'=>'admin/edit_category',
-             'del-category/<post:\w+>'=>'admin/del_category',
+             'del-category/<category:\w+>'=>'admin/del_category',
 
 
          ],
