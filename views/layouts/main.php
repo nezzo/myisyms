@@ -111,10 +111,8 @@ if ($count->old_connects() == 0){
         <p class="pull-left">&copy; Created by Artur Legusha <?= date('Y') ?></p>
     </div>
 </footer>
-
 <?php $this->endBody() ?>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-
 </body>
 </html>
 <?php $this->endPage() ?>

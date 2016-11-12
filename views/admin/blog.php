@@ -5,7 +5,6 @@ use yii\widgets\LinkPager;
 
 /*Подключаем скрипт со своим js*/
 use app\assets\BlogAsset;
-
 $this->title = 'Блог ISYMS';
 
 ?>
@@ -25,7 +24,6 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
     <a href="/category" class="btn btn-primary btn-sm create_post">Категории</a>
 </div>
 <div class="block_news">
-    <?=$test?>
     <?php foreach ($news as $news_blog) { ?>
 
         <div class="col-md-12">
@@ -45,7 +43,6 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
                         <?=$news_blog['category']?>
                     </div>
                 </div>
-
                 <div class="col-md-1">
                     <div class="blog-news-keywords">
                         <?=$news_blog['keywords']?>

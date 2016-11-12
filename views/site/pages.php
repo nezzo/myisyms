@@ -10,7 +10,7 @@ $this->registerMetaTag([
 ]);
 $this->title = "$title ISYMS";
 ?>
-<div class="row">
+<div class="row" xmlns="http://www.w3.org/1999/html">
 <div class="col-md-9">
 <div class="page_content">
     <div class="tab-data">
@@ -37,5 +37,16 @@ $this->title = "$title ISYMS";
            <?php } ?>
        </div>
    </div>
+    <div class="share_pluso">
+        <div class="share_pluso_text">
+        <p>Понравилась запись? Поделитесь ею.</p>
+        </div>
+        <div class="pluso_widget">
+            <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+            <script src="//yastatic.net/share2/share.js"></script>
+            <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,gplus,twitter,blogger,linkedin"></div>
+        </div>
+    </div>
 </div>
+
 </div>

@@ -39,4 +39,21 @@ class Blog extends Model
         return count($rows);
     }
 
+    /*Выводим имя категории*/
+    public function get_name_category($id){
+        $rows = (new \yii\db\Query())
+            ->select(['name_category'])
+            ->from('category')
+            ->where(['id' => (int)$id])
+            ->all();
+
+        foreach($rows as $id_name){
+            return $id_name;
+        }
+       // return $rows;
+
+    }
+
+
+
 }
