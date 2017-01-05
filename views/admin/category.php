@@ -30,7 +30,7 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
             <div class=" blog-news ">
                <div class="col-md-11">
                     <div class="blog-meta-title">
-                        <?=$category['name_category']?>
+                        <?=$category['category']?>
                     </div>
                 </div>
 

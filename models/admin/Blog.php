@@ -17,8 +17,9 @@ class Blog extends Model
     /*Выводим все новости что есть */
     public function get_all_post($offset, $limit){
         $rows = (new \yii\db\Query())
-            ->select(['id','name','category','meta-title','image','meta-description','description','keywords','data','time'])
+            ->select(['news_blogpost.id','name','category.category','meta-title','image','meta-description','description','keywords','data','time'])
             ->from('news_blogpost')
+            ->join('INNER JOIN', 'category', 'news_blogpost.category = category.id')
             ->offset($offset)
             ->limit($limit)
             ->orderBy([
@@ -42,7 +43,7 @@ class Blog extends Model
     /*Выводим имя категории*/
     public function get_name_category($id){
         $rows = (new \yii\db\Query())
-            ->select(['name_category'])
+            ->select(['category'])
             ->from('category')
             ->where(['id' => (int)$id])
             ->all();

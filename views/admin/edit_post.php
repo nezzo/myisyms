@@ -39,7 +39,7 @@ if ($session['admin_ip'] != $_SERVER["REMOTE_ADDR"]){
 
             /*Выводим категорию в выпадающем списке*/
             foreach($category_post as $category){
-                $items[$category['id']] = $category['name_category'];
+                $items[$category['id']] = $category['category'];
             }
             ?>
             <?= $form->field($model, 'category')->dropDownList($items,$params)->label("Категория")?>

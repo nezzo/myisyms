@@ -29,7 +29,7 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => 'Админ-панель | ISYMS',
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandUrl' => admin,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top top_menu',
         ],

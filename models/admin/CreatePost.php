@@ -58,7 +58,7 @@ class CreatePost extends Model
 
         $save = Yii::$app->db->createCommand()
             ->insert('category', [
-                'name_category' => $category['name'],
+                'category' => $category['name'],
              ])->execute();
 
         return $save;

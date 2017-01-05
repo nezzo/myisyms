@@ -69,7 +69,7 @@ class EditPost extends Model
         /*Обновляем запись в базе данных*/
         $save = Yii::$app->db->createCommand()
             ->update('category', [
-                'name_category' => $category['name']
+                'category' => $category['name']
             ], 'id=:id', array(':id'=> (int)$id))
             ->execute();
 
@@ -79,7 +79,7 @@ class EditPost extends Model
     /*Выводим выбранную категорию*/
     public function get_category($id){
         $rows = (new \yii\db\Query())
-            ->select(['id','name_category'])
+            ->select(['id','category'])
             ->from('category')
             ->where(['id' => (int)$id])
             ->all();

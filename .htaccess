@@ -13,3 +13,6 @@ RewriteRule (.*) /web/$1
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /web/index.php
+
+RewriteCond %{REQUEST_URI} /sitemap.xml
+RewriteRule ^(.*)$ http://sitemap.isyms.ru/sitemap.xml [R=301,L]

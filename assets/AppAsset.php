@@ -23,7 +23,7 @@ class AppAsset extends AssetBundle
         'assets/fancybox/source/jquery.fancybox.css?v=2.1.5',
         'assets/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5',
         'assets/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7',
-
+        
     ];
     public $js = [
         'assets/js/site.js',

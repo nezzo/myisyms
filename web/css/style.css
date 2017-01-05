@@ -92,6 +92,7 @@ header {
     background-color: #fff;
     box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
     padding: 20px;
+    word-wrap: break-word;
 }
 .page_name h1 {
     color: #008cba;

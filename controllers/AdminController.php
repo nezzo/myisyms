@@ -79,10 +79,11 @@ class AdminController extends Controller {
          'totalCount' => count($news->get_all_post()) - количество страниц == количеству записей
           */
         $pagination = new Pagination(['totalCount' => $news->total(), 'pageSize' => 5]);
+        $new_post = $news->get_all_post($pagination->offset,$pagination->limit);
 
         /*Выводим пагинацию на страницу*/
         return $this->render('blog',[
-            'news' => $news->get_all_post($pagination->offset,$pagination->limit),
+            'news' => $new_post,
             'pages' => $pagination,
         ]);
     }

@@ -17,7 +17,7 @@ class Category extends Model
     /*Выводим все категории что есть (пагинация) */
     public function get_all_category($offset, $limit){
         $rows = (new \yii\db\Query())
-            ->select(['id','name_category'])
+            ->select(['id','category'])
             ->from('category')
             ->offset($offset)
             ->limit($limit)
@@ -33,7 +33,7 @@ class Category extends Model
     /*Выводим все категории что есть */
     public function all_category(){
         $rows = (new \yii\db\Query())
-            ->select(['id','name_category'])
+            ->select(['id','category'])
             ->from('category')
             ->orderBy([
                 'id' => SORT_DESC
