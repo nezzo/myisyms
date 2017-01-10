@@ -10,6 +10,9 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'Hello World',
             'baseUrl' => '',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -38,8 +41,8 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-         
-        
+
+
         /*Настройка ЧПУ*/
         'urlManager' => [
         'class' => 'yii\web\UrlManager',
@@ -47,7 +50,15 @@ $config = [
         'showScriptName' => false,
         // Убираем r= routes
         'enablePrettyUrl' => true,
+      //  'enableStrictParsing' => true,
+
             'baseUrl' => '',
+            //конфиг для rest api
+            'rules' => [
+                ['class' => 'yii\rest\UrlRule',
+                 'controller' => 'post',
+              ],
+            ],
         'rules' => array(
             '<controller:\w+>/<id:\d+>' => '<controller>/view',
             '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
